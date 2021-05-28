@@ -1,0 +1,34 @@
+.footer
+    margin-top: 100px
+    a
+        text-decoration: none
+        color: #000
+    &__wrapper
+        display: grid
+        grid-template: repeat(3,auto) / repeat(3, auto)
+        row-gap: 45px
+        justify-content: space-between
+    &__nav
+        grid-column: 2/4
+    &__menu
+        width: 100%
+        margin: 0
+        padding: 0
+        list-style-type: none
+        display: flex
+        justify-content: space-between
+    &__contacts
+        display: flex
+        flex-direction: column
+        align-items: space-between
+    &__social
+        width: 112px
+        display: flex
+        justify-content: space-between
+        a
+            display: block
+            width: 20px
+            text-decoration: none
+            display: flex
+            align-items: center
+            justify-content: center
