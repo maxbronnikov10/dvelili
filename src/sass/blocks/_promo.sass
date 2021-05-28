@@ -86,13 +86,44 @@
         &-active
             a
                 color: #fff
+    &__dropdownmenu 
+        margin-top: 100px
+        background-color: #000
+        height: calc(100vh - 15px)
+        display: none
+        &-active 
+            display: flex
+        &-header 
+            font-size: 22px
+            color: #fff
+        &-wrapper 
+            display: grid
+            grid-template: repeat(2, auto)/repeat(4,200px)
+            grid-auto-rows: 120px
+            column-gap: 70px
+            row-gap: 40px
+    &__list 
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li  
+            margin-top: 8px
+            a 
+                font-size: 19px
+                color: #fff
+
+
+
     &__wrapper
-        height: calc(100vh - 105px)
+        margin-top: 10px
+        height: calc(100vh - 115px)
         background: url('../img/main_bg.jpg') center/cover no-repeat
         width: 100%
         display: flex
         align-items: flex-end
         justify-content: center
+        &-active
+            display: none
     &__content
         padding-bottom: 80px
     &__text

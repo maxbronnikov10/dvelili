@@ -5,7 +5,14 @@ const hamburger = document.querySelector('.promo__hamburger'),
     cart = document.querySelector('.promo__cart'),
     favorites = document.querySelector('.promo__favorites'),
     promo = document.querySelector('.promo'),
-    menuList = document.querySelectorAll('.promo__menu-item');
+    menuList = document.querySelectorAll('.promo__menu-item'),
+    
+    wrapper = document.querySelector('.promo__wrapper'),
+    dropdownmenu = document.querySelector('.promo__dropdownmenu'),
+    pageup = document.querySelector('.pageup');
+
+
+
 
 
 hamburger.addEventListener('click', () => {
@@ -19,4 +26,24 @@ hamburger.addEventListener('click', () => {
     menuList.forEach(function (e) {
         e.classList.toggle('promo__menu-item-active');
     });
+    dropdownmenu.classList.toggle('promo__dropdownmenu-active');
+    wrapper.classList.toggle('promo__wrapper-active');
+
 });
+
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 1600) {
+        $('.pageup').fadeIn();
+    } else {
+        $('.pageup').fadeOut();
+    }
+});
+
+$("a[href=#up]").click(function(){
+    const _href = $(this).attr("href");
+    $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+    return false;
+});
+
+new WOW().init()
+
