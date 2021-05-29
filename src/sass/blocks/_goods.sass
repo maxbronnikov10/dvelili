@@ -6,8 +6,15 @@
         grid-template: repeat(4, 400px) / repeat(3, 324px)
         grid-auto-rows: 400px
         gap: 60px
+    &__text 
+        font-weight: 600
+        margin-bottom: 9px
     &__element 
         img
+            transition: all 0.6s
             height: 100%
             width: 100%
             object-fit: cover
+            &:hover 
+                transform: scale(1.05)
+                filter: grayscale(30%)
