@@ -61,7 +61,7 @@ hamburger.addEventListener('click', () => {
 
     setTimeout(() => {
         hamburger.style.pointerEvents = 'auto'
-    }, 500);
+    }, 700);
 });
 
 window.addEventListener('scroll', function () {
