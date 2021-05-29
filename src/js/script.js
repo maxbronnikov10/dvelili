@@ -43,6 +43,18 @@ pageup.addEventListener('click', function (e) {
     e.preventDefault();
     if (getComputedStyle(pageup).opacity != 0) {
         console.log('ага соси');
+<<<<<<< HEAD
+=======
+
+        const blockID = pageup.getAttribute('href')
+        document.querySelector(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+});
+
+>>>>>>> ef4dfe82ffbc3da8437684429daa738bbf362c32
 
         const blockID = pageup.getAttribute('href')
         document.querySelector(blockID).scrollIntoView({

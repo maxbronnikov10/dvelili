@@ -64,11 +64,21 @@
             a
                 color: white
     &__cart, &__favorites
+        position: relative
         &-active
             svg
                 path
                     fill: black
                     stroke: #fff
+    &__count
+        top: -3px
+        left: 27px
+        position: absolute
+        font-weight: bold
+        font-size: 9px
+    &__favorites
+        div
+            left: 30px
 
     &__nav
         margin-top: 30px
@@ -86,51 +96,28 @@
         &-active
             a
                 color: #fff
-    &__dropdownmenu 
+    &__dropdownmenu
         margin-top: 100px
         background-color: #000
         height: calc(100vh - 15px)
         display: none
-        &-active 
+        &-active
             display: flex
-        &-header 
+        &-header
             font-size: 22px
             color: #fff
-        &-wrapper 
+        &-wrapper
             display: grid
             grid-template: repeat(2, auto)/repeat(4,200px)
             grid-auto-rows: 120px
             column-gap: 70px
             row-gap: 40px
-    &__list 
+    &__list
         margin: 0
         padding: 0
         list-style-type: none
-        li  
+        li
             margin-top: 8px
-            a 
+            a
                 font-size: 19px
                 color: #fff
-
-
-
-    &__wrapper
-        margin-top: 10px
-        height: calc(100vh - 115px)
-        background: url('../img/main_bg.jpg') center/cover no-repeat
-        width: 100%
-        display: flex
-        align-items: flex-end
-        justify-content: center
-        &-active
-            display: none
-    &__content
-        padding-bottom: 80px
-    &__text
-        font-weight: bold
-        font-size: 36px
-        text-align: center
-        color: #FFFFFF
-    .btn
-        margin: 0 auto
-        margin-top: 50px

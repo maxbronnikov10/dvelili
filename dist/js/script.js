@@ -6,14 +6,9 @@ const hamburger = document.querySelector('.promo__hamburger'),
     favorites = document.querySelector('.promo__favorites'),
     promo = document.querySelector('.promo'),
     menuList = document.querySelectorAll('.promo__menu-item'),
-    
-    wrapper = document.querySelector('.promo__wrapper'),
+    wrapper = document.querySelector('.presentation__wrapper'),
     dropdownmenu = document.querySelector('.promo__dropdownmenu'),
     pageup = document.querySelector('.pageup');
-
-
-
-
 
 hamburger.addEventListener('click', () => {
     promo.classList.toggle('promo-active');
@@ -31,19 +26,40 @@ hamburger.addEventListener('click', () => {
 
 });
 
-(window).scroll(function() {
-    if ((this).scrollTop() > 1600) {
-        ('.pageup').fadeIn();
+window.addEventListener('scroll', function () {
+    if (window.scrollY > 1200) {
+        pageup.classList.remove("pageup-fadeout");
+        pageup.classList.add("pageup-fadein");
     } else {
-        ('.pageup').fadeOut();
+        if (pageup.classList.contains("pageup-fadein")) {
+            console.log("поешь говна");
+            pageup.classList.remove("pageup-fadein");
+            pageup.classList.add("pageup-fadeout");
+        }
     }
 });
 
-("a[href=#up]").click(function(){
-    const _href = (this).attr("href");
-    ("html, body").animate({scrollTop: (_href).offset().top+"px"});
-    return false;
+pageup.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (getComputedStyle(pageup).opacity != 0) {
+        console.log('ага соси');
+<<<<<<< HEAD
+=======
+
+        const blockID = pageup.getAttribute('href')
+        document.querySelector(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
 });
 
-new WOW().init()
+>>>>>>> ef4dfe82ffbc3da8437684429daa738bbf362c32
 
+        const blockID = pageup.getAttribute('href')
+        document.querySelector(blockID).scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+});
