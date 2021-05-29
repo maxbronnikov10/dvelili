@@ -31,17 +31,17 @@ hamburger.addEventListener('click', () => {
 
 });
 
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 1600) {
-        $('.pageup').fadeIn();
+(window).scroll(function() {
+    if ((this).scrollTop() > 1600) {
+        ('.pageup').fadeIn();
     } else {
-        $('.pageup').fadeOut();
+        ('.pageup').fadeOut();
     }
 });
 
-$("a[href=#up]").click(function(){
-    const _href = $(this).attr("href");
-    $("html, body").animate({scrollTop: $(_href).offset().top+"px"});
+("a[href=#up]").click(function(){
+    const _href = (this).attr("href");
+    ("html, body").animate({scrollTop: (_href).offset().top+"px"});
     return false;
 });
 
