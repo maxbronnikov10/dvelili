@@ -1,14 +1,18 @@
 .presentation
-    margin-top: 10px
+    position: relative
     &__wrapper
-        height: calc(100vh - 115px)
+        padding-top: 10px
+        height: calc(100vh - 105px)
         background: url('../img/main_bg.jpg') center/cover no-repeat
         width: 100%
         display: flex
         align-items: flex-end
         justify-content: center
+        transition: all .3s
         &-active
             display: none
+        &-hidden
+            opacity: 0
     &__content
         padding-bottom: 80px
     &__text
@@ -16,6 +20,38 @@
         font-size: 36px
         text-align: center
         color: #FFFFFF
+    &__dropdownmenu
+        position: absolute
+        top: -1150px
+        width: 100%
+        padding-top: 100px
+        background-color: #000
+        height: calc(100vh - 15px)
+        transition-delay: .5s
+        transition: all .5s
+        display: block
+        &-active
+            top: 0
+        &-header
+            font-size: 22px
+            color: #fff
+        &-wrapper
+            width: 1080px
+            margin: 0 auto
+            display: grid
+            grid-template: repeat(2, auto)/repeat(4,200px)
+            grid-auto-rows: 120px
+            justify-content: space-between
+            row-gap: 40px
+    &__list
+        margin: 0
+        padding: 0
+        list-style-type: none
+        li
+            margin-top: 8px
+            a
+                font-size: 19px
+                color: #fff
     .btn
         margin: 0 auto
         margin-top: 50px

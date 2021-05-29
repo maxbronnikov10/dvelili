@@ -7,10 +7,11 @@ const hamburger = document.querySelector('.promo__hamburger'),
     promo = document.querySelector('.promo'),
     menuList = document.querySelectorAll('.promo__menu-item'),
     wrapper = document.querySelector('.presentation__wrapper'),
-    dropdownmenu = document.querySelector('.promo__dropdownmenu'),
+    dropdownmenu = document.querySelector('.presentation__dropdownmenu'),
     pageup = document.querySelector('.pageup');
 
 hamburger.addEventListener('click', () => {
+    hamburger.style.pointerEvents = 'none'
     promo.classList.toggle('promo-active');
     hamburger.classList.toggle('promo__hamburger-active');
     logo.classList.toggle('promo__logo-active');
@@ -21,33 +22,76 @@ hamburger.addEventListener('click', () => {
     menuList.forEach(function (e) {
         e.classList.toggle('promo__menu-item-active');
     });
-    dropdownmenu.classList.toggle('promo__dropdownmenu-active');
-    wrapper.classList.toggle('promo__wrapper-active');
 
+
+    if (wrapper.classList.contains('presentation__wrapper-active')) {
+        wrapper.classList.remove('presentation__wrapper-active');
+        setTimeout(function () {
+            wrapper.classList.remove('presentation__wrapper-hidden');
+        }, 20);
+    } else {
+        wrapper.classList.add('presentation__wrapper-hidden');
+        wrapper.addEventListener('transitionend', function (e) {
+            wrapper.classList.add('presentation__wrapper-active');
+        }, {
+            capture: false,
+            once: true,
+            passive: false
+        });
+    }
+    // if (dropdownmenu.classList.contains('presentation__dropdownmenu-none')) {
+    //     dropdownmenu.classList.remove('presentation__dropdownmenu-none');
+    //     dropdownmenu.classList.add('presentation__dropdownmenu-active');
+    //     setTimeout(function () {
+    //         dropdownmenu.classList.remove('presentation__dropdownmenu-hidden');
+    //     }, 20);
+    // } else {
+    //     dropdownmenu.classList.add('presentation__dropdownmenu-hidden');
+    //     dropdownmenu.addEventListener('transitionend', function (e) {
+    //         dropdownmenu.classList.add('presentation__dropdownmenu-none');
+    //         dropdownmenu.classList.remove('presentation__dropdownmenu-active');
+    //     }, {
+    //         capture: false,
+    //         once: true,
+    //         passive: false
+    //     });
+    // }
+
+    dropdownmenu.classList.toggle("presentation__dropdownmenu-active");
+
+    setTimeout(() => {
+        hamburger.style.pointerEvents = 'auto'
+    }, 500);
 });
 
 window.addEventListener('scroll', function () {
-    if (window.scrollY > 1200) {
-        pageup.classList.remove("pageup-fadeout");
-        pageup.classList.add("pageup-fadein");
-    } else {
-        if (pageup.classList.contains("pageup-fadein")) {
-            console.log("поешь говна");
-            pageup.classList.remove("pageup-fadein");
-            pageup.classList.add("pageup-fadeout");
-        }
+    if (window.scrollY > 1200 && pageup.classList.contains('pageup-none')) {
+        console.log('вкусно?');
+        pageup.classList.remove('pageup-none');
+        pageup.classList.add('pageup-active');
+        setTimeout(function () {
+            pageup.classList.remove('pageup-hidden');
+        }, 20);
+    }
+    else if (window.scrollY < 1200 && pageup.classList.contains('pageup-active')) {
+        console.log('пососи');
+        pageup.classList.add('pageup-hidden');
+        pageup.addEventListener('transitionend', function (e) {
+            pageup.classList.add('pageup-none');
+            pageup.classList.remove('pageup-active');
+        }, {
+            capture: false,
+            once: true,
+            passive: false
+        });
     }
 });
 
 pageup.addEventListener('click', function (e) {
     e.preventDefault();
-    if (getComputedStyle(pageup).opacity != 0) {
-        console.log('ага соси');
-
-        const blockID = pageup.getAttribute('href')
-        document.querySelector(blockID).scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
+    const blockID = pageup.getAttribute('href')
+    document.querySelector(blockID).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    });
 });

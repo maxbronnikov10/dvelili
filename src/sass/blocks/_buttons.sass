@@ -12,8 +12,10 @@
     font-weight: bold
     text-transform: uppercase
     background-color: rgba(0, 0, 0, 0.3)
+    transition: .9s all
+    &:hover
+        border-radius: 20px
     &-white
-        transition: .9s
         background-color: #fff
         color: #000
         border: 1px solid #000
@@ -21,10 +23,8 @@
             background: black
             color: #fff
     &-black
-        transition: all .7s
         background-color: #000
         &:hover
-            border-radius: 20px
             border: 1px solid #000
             background: #fff
             color: #000
