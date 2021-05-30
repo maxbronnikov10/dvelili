@@ -52,8 +52,8 @@
         &:hover
             svg
                 path
-                    
-                    fill: #E1C4A9
+
+                    fill: $main-color
         &-active
             svg
                 path
@@ -63,7 +63,7 @@
         display: flex
         justify-content: space-between
         svg
-            path 
+            path
                 transition: .5s all
         a
             display: block
@@ -74,8 +74,8 @@
             &:hover
                 svg
                     path
-                        
-                        fill: #E1C4A9
+
+                        fill: $main-color
         &-active
             svg
                 path
@@ -87,11 +87,11 @@
     &__contacts
         display: flex
         align-items: center
-        a   
+        a
             transition: .5s all
             font-weight: bold
             &:hover
-                color: #E1C4A9
+                color: $main-color
         &-active
             a
                 color: white
@@ -102,8 +102,7 @@
             path
                 fill: #fff
                 transition: .5s all
-        
-                        
+
         &-active
             svg
                 path
@@ -124,7 +123,7 @@
             &:hover
                 svg
                     path
-                        fill:#E1C4A9
+                        fill: $main-color
     &__count
         top: -3px
         left: 27px
@@ -142,11 +141,10 @@
         padding: 0
         margin: 0
         font-weight: 600
-        &__new
+        &-item
+            transition: .5s all
             &:hover
-                transform: translate(15px,0)
-
-    &__menu-item
-        &-active
-            a
-                color: #fff
+                transform: translateY(-5px)
+            &-active
+                a
+                    color: #fff

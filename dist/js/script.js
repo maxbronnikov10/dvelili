@@ -8,7 +8,45 @@ const hamburger = document.querySelector('.promo__hamburger'),
     menuList = document.querySelectorAll('.promo__menu-item'),
     wrapper = document.querySelector('.presentation__wrapper'),
     dropdownmenu = document.querySelector('.presentation__dropdownmenu'),
-    pageup = document.querySelector('.pageup');
+    pageup = document.querySelector('.pageup'),
+    left = document.querySelector('.instagram__arrow-left'),
+    right = document.querySelector('.instagram__arrow-right'),
+    instagramItems = document.querySelector('.instagram__wrapper');
+
+var index = 2;
+function getClassesForSlides() {
+    for (i = 0; i < instagramItems.childNodes.length; i++) {
+
+        instagramItems.childNodes[i].className = "";
+
+        instagramItems.childNodes[i].classList.add('instagram__item');
+        if (i == index) instagramItems.childNodes[i].classList.add("instagram__item-center");
+        else if (i >= index + 3) instagramItems.childNodes[i].classList.add("instagram__item-none");
+        else if (i == index - 1 || i == index + 1) instagramItems.childNodes[i].classList.add('instagram__item-closest');
+        else instagramItems.childNodes[i].classList.add('instagram__item-another');
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    getClassesForSlides();
+});
+
+left.addEventListener('click', (e) => {
+    e.preventDefault();
+    const a = instagramItems.childNodes[instagramItems.childNodes.length - 1];
+    const b = instagramItems.childNodes[index - 2];
+    setTimeout(instagramItems.insertBefore(a, b), 1000);
+    getClassesForSlides();
+});
+
+right.addEventListener('click', (e) => {
+    e.preventDefault();
+    const a = instagramItems.childNodes[instagramItems.childNodes.length - 1];
+    const b = instagramItems.childNodes[index - 2];
+    setTimeout(instagramItems.insertBefore(b, a), 1000)
+    getClassesForSlides();
+});
+
 
 hamburger.addEventListener('click', () => {
     hamburger.style.pointerEvents = 'none'
@@ -39,23 +77,6 @@ hamburger.addEventListener('click', () => {
             passive: false
         });
     }
-    // if (dropdownmenu.classList.contains('presentation__dropdownmenu-none')) {
-    //     dropdownmenu.classList.remove('presentation__dropdownmenu-none');
-    //     dropdownmenu.classList.add('presentation__dropdownmenu-active');
-    //     setTimeout(function () {
-    //         dropdownmenu.classList.remove('presentation__dropdownmenu-hidden');
-    //     }, 20);
-    // } else {
-    //     dropdownmenu.classList.add('presentation__dropdownmenu-hidden');
-    //     dropdownmenu.addEventListener('transitionend', function (e) {
-    //         dropdownmenu.classList.add('presentation__dropdownmenu-none');
-    //         dropdownmenu.classList.remove('presentation__dropdownmenu-active');
-    //     }, {
-    //         capture: false,
-    //         once: true,
-    //         passive: false
-    //     });
-    // }
 
     dropdownmenu.classList.toggle("presentation__dropdownmenu-active");
 
