@@ -1,6 +1,5 @@
 .promo
     padding-top: 26px
-
     transition: all 0.5s
     &-active
         transition: all 0.5s
@@ -45,41 +44,6 @@
                     transform: translateY(-7px) rotate(45deg)
                 &:nth-child(3)
                     display: none
-    &__logo
-        svg
-            path
-                transition: .5s all
-        &:hover
-            svg
-                path
-
-                    fill: $main-color
-        &-active
-            svg
-                path
-                    fill: #fff
-    &__social
-        width: 112px
-        display: flex
-        justify-content: space-between
-        svg
-            path
-                transition: .5s all
-        a
-            display: block
-            width: 20px
-            display: flex
-            align-items: center
-            justify-content: center
-            &:hover
-                svg
-                    path
-
-                        fill: $main-color
-        &-active
-            svg
-                path
-                    fill: #fff
     &__order
         width: 250px
         display: flex
@@ -134,17 +98,3 @@
     &__nav
         margin-top: 30px
         padding: 0 70px
-    &__menu
-        list-style-type: none
-        display: flex
-        justify-content: space-between
-        padding: 0
-        margin: 0
-        font-weight: 600
-        &-item
-            transition: .5s all
-            &:hover
-                transform: translateY(-5px)
-            &-active
-                a
-                    color: #fff

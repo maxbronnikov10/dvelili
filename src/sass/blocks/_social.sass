@@ -1,0 +1,22 @@
+.social
+    width: 112px
+    display: flex
+    justify-content: space-between
+    svg
+        path
+            transition: .5s all
+    a
+        display: block
+        width: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        &:hover
+            svg
+                path
+
+                    fill: $main-color
+    &-active
+        svg
+            path
+                fill: #fff
