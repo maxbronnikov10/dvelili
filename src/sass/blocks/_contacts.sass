@@ -3,5 +3,30 @@
     &__wrapper
         margin-top: 45px
         display: grid
-        grid-template: 725px / 700px auto
-        column-gap: 20px    
+        grid-template: auto / 700px auto
+        column-gap: 20px
+    &__info
+        display: grid
+        grid-template: repeat(3, auto) / repeat(2, auto)
+        justify-content: space-between
+        row-gap: 20px
+        &-item
+            display: flex
+    &__img
+        display: flex
+        justify-content: center
+        align-items: center
+    &__text
+        margin-left: 15px
+        justify-self: right
+    &__address-wrapper
+        margin-top: 25px
+        display: grid
+        grid-template: repeat(2,auto) / auto
+        row-gap: 10px
+    &__address
+        margin-top: 45px
+        .title
+            text-align: left
+        &-item
+            display: flex
