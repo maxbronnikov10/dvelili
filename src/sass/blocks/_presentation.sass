@@ -35,13 +35,17 @@
         &-active
             top: 0
         &-header
-            font-size: 22px
-            color: #fff
+            a
+                font-size: 22px
+                color: #fff
+                transition: .5s all
+                &:hover
+                    color: $main-color
         &-wrapper
             width: 1080px
             margin: 0 auto
             display: grid
-            grid-template: repeat(2, auto)/repeat(4,200px)
+            grid-template: repeat(2, auto)/repeat(3,200px)
             grid-auto-rows: 120px
             justify-content: space-between
             row-gap: 40px
@@ -51,9 +55,13 @@
         list-style-type: none
         li
             margin-top: 8px
+            display: flex
             a
                 font-size: 19px
                 color: #fff
+                transition: .5s all
+                &:hover
+                    transform: translateX(10px)
     .btn
         margin: 0 auto
         margin-top: 50px

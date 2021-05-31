@@ -22,20 +22,38 @@ if (document.querySelector('body').dataset.id == "main") {
         getClassesForSlides();
     });
 
+
     left.addEventListener('click', (e) => {
         e.preventDefault();
+
+        left.style.pointerEvents = 'none'
+        left.classList.toggle('instagram__arrow-left-active');
         const a = instagramItems.childNodes[instagramItems.childNodes.length - 1];
         const b = instagramItems.childNodes[index - 2];
-        setTimeout(instagramItems.insertBefore(a, b), 1000);
+        instagramItems.insertBefore(a, b);
+
         getClassesForSlides();
+        setTimeout(() => {
+            left.classList.toggle('instagram__arrow-left-active');
+        }, 250);
+
+        left.style.pointerEvents = 'auto'
     });
 
     right.addEventListener('click', (e) => {
         e.preventDefault();
+
+        right.style.pointerEvents = 'none'
+        right.classList.toggle('instagram__arrow-right-active');
         const a = instagramItems.childNodes[instagramItems.childNodes.length - 1];
         const b = instagramItems.childNodes[index - 2];
-        setTimeout(instagramItems.insertBefore(b, a), 1000)
+        instagramItems.insertBefore(b, a);
         getClassesForSlides();
+        setTimeout(() => {
+            right.classList.toggle('instagram__arrow-right-active');
+        }, 250);
+
+        right.style.pointerEvents = 'auto'
     });
 }
 
@@ -50,16 +68,7 @@ const hamburger = document.querySelector('.promo__hamburger'),
     dropdownmenu = document.querySelector('.presentation__dropdownmenu'),
     pageup = document.querySelector('.pageup');
 
-hamburger.addEventListener('click', () => {
-    hamburger.style.pointerEvents = 'none'
-    promo.classList.toggle('promo-active');
-    hamburger.classList.toggle('promo__hamburger-active');
-    logo.classList.toggle('logo-active');
-    social.classList.toggle('social-active');
-    contacts.classList.toggle('promo__contacts-active');
-    cart.classList.toggle('promo__cart-active');
-    favorites.classList.toggle('promo__favorites-active');
-
+function toggleWrapper() {
     if (document.querySelector('body').dataset.id == "main") {
         if (wrapper.classList.contains('presentation__wrapper-active')) {
             wrapper.classList.remove('presentation__wrapper-active');
@@ -76,8 +85,21 @@ hamburger.addEventListener('click', () => {
                 passive: false
             });
         }
-    }
+    };
+}
 
+hamburger.addEventListener('click', () => {
+    hamburger.style.pointerEvents = 'none'
+    promo.classList.toggle('promo-active');
+    hamburger.classList.toggle('promo__hamburger-active');
+    logo.classList.toggle('logo-active');
+    social.classList.toggle('social-active');
+    contacts.classList.toggle('promo__contacts-active');
+    cart.classList.toggle('promo__cart-active');
+    favorites.classList.toggle('promo__favorites-active');
+
+
+    toggleWrapper();
     dropdownmenu.classList.toggle("presentation__dropdownmenu-active");
 
     setTimeout(() => {
@@ -86,8 +108,18 @@ hamburger.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', function () {
-    if (window.scrollY > 1200 && pageup.classList.contains('pageup-none')) {
-        console.log('вкусно?');
+    if (window.scrollY > window.innerHeight / 4 && dropdownmenu.classList.contains('presentation__dropdownmenu-active')) {
+        promo.classList.remove('promo-active');
+        hamburger.classList.remove('promo__hamburger-active');
+        logo.classList.remove('logo-active');
+        social.classList.remove('social-active');
+        contacts.classList.remove('promo__contacts-active');
+        cart.classList.remove('promo__cart-active');
+        favorites.classList.remove('promo__favorites-active');
+        toggleWrapper();
+        dropdownmenu.classList.remove('presentation__dropdownmenu-active');
+    }
+    else if (window.scrollY > 1200 && pageup.classList.contains('pageup-none')) {
         pageup.classList.remove('pageup-none');
         pageup.classList.add('pageup-active');
         setTimeout(function () {
@@ -95,7 +127,6 @@ window.addEventListener('scroll', function () {
         }, 20);
     }
     else if (window.scrollY < 1200 && pageup.classList.contains('pageup-active')) {
-        console.log('пососи');
         pageup.classList.add('pageup-hidden');
         pageup.addEventListener('transitionend', function (e) {
             pageup.classList.add('pageup-none');
@@ -116,3 +147,4 @@ pageup.addEventListener('click', function (e) {
         block: 'start'
     });
 });
+2

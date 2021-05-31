@@ -129,10 +129,9 @@
         <div class="presentation__dropdownmenu ">
             <div class="container">
                 <div class="presentation__dropdownmenu-wrapper">
-                    <div class="presentation__dropdownmenu-header">Категории</div>
-                    <div class="presentation__dropdownmenu-header">Покупателям</div>
-                    <div class="presentation__dropdownmenu-header">О нас</div>
-                    <div class="presentation__dropdownmenu-header">Контакты</div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">О нас</a></div>
                     <ul class="presentation__list">
                         <li class="presentation__list-item">
                             <a href="#">Юбки</a>
@@ -172,6 +171,9 @@
                         </li>
                         <li class="presentation__list-item">
                             <a href="#">Корзина</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Отзывы</a>
                         </li>
                     </ul>
                     <ul class="presentation__list">
@@ -318,9 +320,9 @@
         <div class="container">
             <div class="title">ОБРАТНАЯ СВЯЗЬ</div>
             <form action="" class="call__form">
-                <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ">
-                <input required name="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН">
-                <input require name="time" type="text" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ">
+                <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ" min="2" max="100">
+                <input required name="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН" min="11" max="30">
+                <input require name="time" type="text" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ" min="10" max="10">
                 <textarea name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
                 <button class="btn btn-white">ОТПРАВИТЬ</button>
             </form>
@@ -419,8 +421,8 @@
                 </div>
             </div>
             <div class="instagram__arrows-wrapper">
-                <a class="instagram__arrow-left" href="">←</a>
-                <a class="instagram__arrow-right" href="">→</a>
+                <div class="instagram__arrow-left">←</div>
+                <div class="instagram__arrow-right">→</div>
             </div>
         </div>
     </section>
@@ -461,15 +463,13 @@
                 </div>
                 <div class="footer__contacts">
                     <a href="tel:+8 (495) 150-14">ТЕЛ.: 8 (495) 150-14</a>
-
                     <a href="https://wa.me/79777282738"> WHATSAPP: +7 (977) 728-27-38</a>
                 </div>
                 <div class="footer__address">
                     АДРЕС:<br>
-
                     <address>
-
-                        г. Москва, Новая площадь 8, стр.2, 5 этаж
+                        <a href="https://goo.gl/maps/nbuiWF187n6RrHRh9" target="_blank">г. Москва, Новая площадь 8,
+                            стр.2, 5 этаж</a>
                     </address>
                 </div>
                 <div class="footer__schedule">
@@ -477,8 +477,7 @@
                     с 9.00 до 21.00 салон: с 12.00 до 21.00
                 </div>
                 <div class="footer__mail">
-                    <a href="mailto: info@eleanboutique.ru">EMAIL: info@eleanboutique.ru
-                    </a>
+                    <a href="mailto:info@eleanboutique.ru">EMAIL: info@eleanboutique.ru</a>
                 </div>
                 <div class="social">
                     <a href="">
