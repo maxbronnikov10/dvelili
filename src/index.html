@@ -318,14 +318,22 @@
     </section>
     <section class="call">
         <div class="container">
-            <div class="title">ОБРАТНАЯ СВЯЗЬ</div>
-            <form action="" class="call__form">
-                <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ" min="2" max="100">
-                <input required name="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН" min="11" max="30">
-                <input require name="time" type="text" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ" min="10" max="10">
-                <textarea name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
-                <button class="btn btn-white">ОТПРАВИТЬ</button>
-            </form>
+            <div class="call__wrapper">
+                <div class="title">ОБРАТНАЯ СВЯЗЬ</div>
+                <form action="" class="call__form">
+                    <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ" min="2" max="100">
+                    <input required name="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН" min="11" max="30">
+                    <input require name="time" type="text" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ" min="10" max="10">
+                    <textarea name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
+                    <div class="contacts__triggers">    
+                    <button class="btn btn-white">ОТПРАВИТЬ</button>
+                        <div class="call__policy">
+                            <input r type="checkbox">
+                            <span>Я согласен(а) с <a target="_blank" href="/policy.html">политикой конфиденциальности</a></span>
+                        </div>  
+                    </div>  
+                </form>
+            </div>
         </div>
     </section>
 
