@@ -7,6 +7,12 @@
         grid-template: auto / repeat(3, 415px)
         column-gap: 30px
     &__img
+        --x: 0
+        --y: 0
+        --d: 20
+        transition: .5s all
+        &:hover
+            transform: scale(1.025) translate(calc(var(--x) / var(--d) * 1px), calc(var(--y) / var(--d) * 1px))
         img
             width: 100%
             height: 100%

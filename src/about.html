@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body data-id="about">
     <section class="promo" id="up">
         <div class="container">
             <header class="promo__header">
@@ -111,7 +111,7 @@
                     <li class="menu-item"><a href="" class="menu__link">КАТАЛОГ</a></li>
                     <li class="menu-item"><a href="" class="menu__link">ПОКУПАТЕЛЯМ</a></li>
                     <li class="menu-item"><a href="about.html" class="menu__link">О НАС</a></li>
-                    <li class="menu-item"><a href="" class="menu__link">КОНТАКТЫ</a></li>
+                    <li class="menu-item"><a href="contacts.html" class="menu__link">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
         </div>
@@ -121,10 +121,9 @@
         <div class="presentation__dropdownmenu ">
             <div class="container">
                 <div class="presentation__dropdownmenu-wrapper">
-                    <div class="presentation__dropdownmenu-header">Категории</div>
-                    <div class="presentation__dropdownmenu-header">Покупателям</div>
-                    <div class="presentation__dropdownmenu-header">О нас</div>
-                    <div class="presentation__dropdownmenu-header">Контакты</div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">О нас</a></div>
                     <ul class="presentation__list">
                         <li class="presentation__list-item">
                             <a href="#">Юбки</a>
@@ -165,10 +164,13 @@
                         <li class="presentation__list-item">
                             <a href="#">Корзина</a>
                         </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Отзывы</a>
+                        </li>
                     </ul>
                     <ul class="presentation__list">
                         <li class="presentation__list-item">
-                            <a href="#">Салон</a>
+                            <a href="shop.html">Салон</a>
                         </li>
                         <li class="presentation__list-item">
                             <a href="#">Отзывы</a>
@@ -179,7 +181,6 @@
         </div>
         </div>
     </section>
-
 
     <section class="aboutus">
         <div class="container">
@@ -398,11 +399,16 @@
             </div>
             <div class="title">ОБРАТНАЯ СВЯЗЬ</div>
             <form action="" class="call__form">
-                <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ">
-                <input required name="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН">
-                <input require name="time" type="text" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ">
+                <input required name="name" type="text" placeholder="ВВЕДИТЕ ИМЯ" min="2" max="100">
+                <input required name="phone" id="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН" min="11" max="30">
+                <input require name="time" type="time" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ" min="10" max="10">
                 <textarea name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
                 <button class="btn btn-white">ОТПРАВИТЬ</button>
+                <div class="call__policy">
+                    <input r type="checkbox">
+                    <span>Я согласен(а) с <a target="_blank" href="policy.html">политикой
+                            конфиденциальности</a></span>
+                </div>
             </form>
         </div>
     </section>
