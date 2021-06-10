@@ -65,10 +65,14 @@ const hamburger = document.querySelector('.promo__hamburger'),
 if (bodyId == "main") {
     const left = document.querySelector('.instagram__arrow-left'),
         right = document.querySelector('.instagram__arrow-right'),
-        instagramItems = document.querySelector('.instagram__wrapper');
+        instagramItems = document.querySelector('.instagram__wrapper'),
+        presentationLeft = document.querySelector('.presentation__arrow-left'),
+        presentationRight = document.querySelector('.presentation__arrow-right'),
+        presentationWrapper = document.querySelector('.presentation__wrapper');
 
     window.addEventListener('DOMContentLoaded', () => {
         getClassesForSlides(instagramItems);
+        getClasseForPresentationSlides(presentationWrapper);
     });
 
 
@@ -94,7 +98,7 @@ if (bodyId == "main") {
 
         right.style.pointerEvents = 'none';
         right.classList.toggle('instagram__arrow-right-active');
-        const a = instagramItems.childNodes[instagramItems.childNodes.length - 1];
+        const a = instagramItems.childNodes[instagramItems.childNodes.length];
         const b = instagramItems.childNodes[index - 2];
         instagramItems.insertBefore(b, a);
         getClassesForSlides(instagramItems);
@@ -103,6 +107,39 @@ if (bodyId == "main") {
         }, 250);
 
         right.style.pointerEvents = 'auto';
+    });
+
+
+    presentationLeft.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        presentationLeft.style.pointerEvents = 'none';
+        presentationLeft.classList.toggle('presentation__arrow-left-active');
+        const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length - 1];
+        const b = presentationWrapper.childNodes[0];
+        presentationWrapper.insertBefore(a, b);
+        getClasseForPresentationSlides(presentationWrapper);
+        setTimeout(() => {
+            presentationLeft.classList.toggle('presentation__arrow-left-active');
+        }, 250);
+
+        presentationLeft.style.pointerEvents = 'auto';
+    });
+
+    presentationRight.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        presentationRight.style.pointerEvents = 'none';
+        presentationRight.classList.toggle('presentation__arrow-right-active');
+        const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length];
+        const b = presentationWrapper.childNodes[0];
+        presentationWrapper.insertBefore(b, a);
+        getClasseForPresentationSlides(presentationWrapper);
+        setTimeout(() => {
+            presentationRight.classList.toggle('presentation__arrow-right-active');
+        }, 250);
+
+        presentationRight.style.pointerEvents = 'auto';
     });
 }
 
@@ -258,6 +295,17 @@ pageup.addEventListener('click', function (e) {
         block: 'start'
     });
 });
+
+function getClasseForPresentationSlides(obj) {
+
+    for (let i = 0; i < obj.childNodes.length; i++) {
+        obj.childNodes[i].className = "";
+        obj.childNodes[i].classList.add('presentation__content');
+        if (i >= 1) {
+            obj.childNodes[i].classList.add("presentation__content-disable");
+        }
+    }
+}
 
 
 function toggleRequirements(e) {
