@@ -1,4 +1,8 @@
-const CustomValidation = {
+function CustomValidation() {
+
+}
+
+CustomValidation.prototype = {
     invalidities: [],
     validityChecks: [],
     addInvalidity: function (message) {
@@ -9,55 +13,38 @@ const CustomValidation = {
     },
     checkValidity: function (input) {
         for (var i = 0; i < this.validityChecks.length; i++) {
-
-            var isInvalid = this.validityChecks[i].isInvalid(input);
+            let isInvalid = this.validityChecks[i].isInvalid(input);
             if (isInvalid) {
                 this.addInvalidity(this.validityChecks[i].invalidityMessage);
             }
 
-            var requirementElement = this.validityChecks[i].element;
+            let requirementElement = this.validityChecks[i].element;
+            let list = requirementElement.parentNode.children[1];
+
             if (requirementElement) {
                 if (isInvalid) {
-                    requirementElement.classList.add('invalid');
-                    requirementElement.classList.remove('valid');
+                    list.childNodes.forEach((e) => {
+                        if (this.validityChecks[i].invalidityMessage === e.textContent.slice(1)) {
+
+                            e.classList.add('invalid');
+                            e.classList.remove('valid');
+                        }
+                    });
+
                 } else {
-                    requirementElement.classList.remove('invalid');
-                    requirementElement.classList.add('valid');
+                    list.childNodes.forEach((e) => {
+                        if (this.validityChecks[i].invalidityMessage === e.textContent.slice(1)) {
+
+                            e.classList.remove('invalid');
+                            e.classList.add('valid');
+                        }
+                    });
                 }
 
-            } // end if requirementElement
-        } // end for
+            }
+        }
     }
 };
-
-
-
-
-
-/* ----------------------------
-
-    Check this input
-
-    Function to check this particular input
-    If input is invalid, use setCustomValidity() to pass a message to be displayed
-
----------------------------- */
-
-function checkInput(input) {
-
-    input.CustomValidation.invalidities = [];
-    input.CustomValidation.checkValidity(input);
-
-    if (input.CustomValidation.invalidities.length == 0 && input.value != '') {
-        input.setCustomValidity('');
-    } else {
-        var message = input.CustomValidation.getInvalidities();
-        input.setCustomValidity(message);
-    }
-}
-
-
-
 
 
 const bodyId = document.querySelector('body').dataset.id;
@@ -72,10 +59,7 @@ const hamburger = document.querySelector('.promo__hamburger'),
     promo = document.querySelector('.promo'),
     wrapper = document.querySelector('.presentation__wrapper'),
     dropdownmenu = document.querySelector('.presentation__dropdownmenu'),
-    pageup = document.querySelector('.pageup'),
-    callName = document.querySelector("#name"),
-    callPhone = document.querySelector("#phone"),
-    submit = document.querySelector("#submit");
+    pageup = document.querySelector('.pageup');
 
 
 if (bodyId == "main") {
@@ -124,27 +108,31 @@ if (bodyId == "main") {
 
 
 if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
+
+    const callName = document.querySelector("#name"),
+        callPhone = document.querySelector("#phone"),
+        callText = document.querySelector("#text"),
+        submit = document.querySelector("#submit");
     callPhone.addEventListener("input", mask, false);
     callPhone.addEventListener("focus", mask, false);
     callPhone.addEventListener("blur", mask, false);
 
 
-    const inputs = [callName, callPhone];
-
+    const inputs = [callName, callPhone, callText];
     var nameValidityChecks = [
         {
             isInvalid: function (input) {
-                return input.value.length < 3;
+                return input.value.length < 2;
             },
-            invalidityMessage: 'This input needs to be at least 3 characters',
+            invalidityMessage: 'Не менее двух символов',
             element: callName
         },
         {
             isInvalid: function (input) {
-                var illegalCharacters = input.value.match(/[^a-zA-Z0-9]/g);
+                var illegalCharacters = input.value.match(/[0-9]/g);
                 return illegalCharacters ? true : false;
             },
-            invalidityMessage: 'Only letters and numbers are allowed',
+            invalidityMessage: 'Должны быть только буквы',
             element: callName
         }
     ];
@@ -152,49 +140,28 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
     var phoneValidityChecks = [
         {
             isInvalid: function (input) {
-                return input.value.length < 8 | input.value.length > 100;
+                let value = input.value;
+                value = value.replace(["+", "-", " "], "");
+                return value < 12 | value > 12;
             },
-            invalidityMessage: 'This input needs to be between 8 and 100 characters',
+            invalidityMessage: 'Не менее одиннадцати символов',
             element: callPhone
         },
         {
             isInvalid: function (input) {
-                return !input.value.match(/[0-9]/g);
+                var illegalCharacters = input.value.match(/[a-zA-Z]/g);
+                return illegalCharacters ? true : false;
             },
-            invalidityMessage: 'At least 1 number is required',
-            element: callPhone
-        },
-        {
-            isInvalid: function (input) {
-                return !input.value.match(/[a-z]/g);
-            },
-            invalidityMessage: 'At least 1 lowercase letter is required',
-            element: callPhone
-        },
-        {
-            isInvalid: function (input) {
-                return !input.value.match(/[A-Z]/g);
-            },
-            invalidityMessage: 'At least 1 uppercase letter is required',
-            element: callPhone
-        },
-        {
-            isInvalid: function (input) {
-                return !input.value.match(/[\!\@\#\$\%\^\&\*]/g);
-            },
-            invalidityMessage: 'You need one of the required special characters',
+            invalidityMessage: 'Должны быть только цифры',
             element: callPhone
         }
     ];
 
-    callName.CustomValidation = CustomValidation;
+    callName.CustomValidation = new CustomValidation();
     callName.CustomValidation.validityChecks = nameValidityChecks;
 
-    callPhone.CustomValidation = CustomValidation;
+    callPhone.CustomValidation = new CustomValidation();
     callPhone.CustomValidation.validityChecks = phoneValidityChecks;
-
-
-
 
     inputs.forEach((e) => {
         e.addEventListener('mouseover', function () {
@@ -205,11 +172,11 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
             toggleRequirements(e);
         });
         e.addEventListener('keyup', function () {
-            checkInput(this);
+            checkInput(e);
         });
     });
     submit.addEventListener('click', function () {
-        for (var i = 0; i < inputs.length; i++) {
+        for (var i = 0; i < inputs.length - 1; i++) {
             checkInput(inputs[i]);
         }
     });
@@ -293,9 +260,6 @@ pageup.addEventListener('click', function (e) {
 });
 
 
-
-
-
 function toggleRequirements(e) {
     e.parentNode.classList.toggle("call__label-active");
     e.parentNode.childNodes[1].classList.toggle("input-requirements-active");
@@ -367,5 +331,18 @@ function mask(event) {
         }
     } else {
         setCursorPosition(this.value.length, this);
+    }
+}
+
+function checkInput(input) {
+
+    input.CustomValidation.invalidities = [];
+    input.CustomValidation.checkValidity(input);
+
+    if (input.CustomValidation.invalidities.length == 0 && input.value != '') {
+        input.setCustomValidity('');
+    } else {
+        var message = input.CustomValidation.getInvalidities();
+        input.setCustomValidity(message);
     }
 }

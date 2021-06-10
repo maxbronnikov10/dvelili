@@ -107,7 +107,6 @@
 
             <nav class="promo__nav">
                 <ul class="menu">
-                    <li class="menu-item"><a href="" class="menu__link">НОВИНКИ</a></li>
                     <li class="menu-item"><a href="" class="menu__link">КАТАЛОГ</a></li>
                     <li class="menu-item"><a href="" class="menu__link">ПОКУПАТЕЛЯМ</a></li>
                     <li class="menu-item"><a href="about.html" class="menu__link">О НАС</a></li>
@@ -199,12 +198,10 @@
             <div class="title">ОБРАТНАЯ СВЯЗЬ</div>
             <form action="" class="call__form">
                 <label class="call__label" for="name">
-
                     <input required name="name" id="name" type="text" placeholder="ВВЕДИТЕ ИМЯ" min="2" max="100">
-
                     <ul class="input-requirements">
-                        <li>At least 3 characters long</li>
-                        <li>Must only contain letters and numbers (no special characters)</li>
+                        <li>*Не менее двух символов</li>
+                        <li>*Должны быть только буквы</li>
                     </ul>
                 </label>
                 <label class="call__label" for="phone">
@@ -212,12 +209,17 @@
                     <input required name="phone" id="phone" type="text" placeholder="ВВЕДИТЕ ТЕЛЕФОН" min="11" max="30">
 
                     <ul class="input-requirements">
-                        <li>At least 3 characters long</li>
-                        <li>Must only contain letters and numbers (no special characters)</li>
+                        <li>*Не менее одиннадцати символов</li>
+                        <li>*Должны быть только цифры</li>
                     </ul>
                 </label>
-                <input require name="time" type="time" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ" min="10" max="10">
-                <textarea name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
+                <input require name="time" type="time" placeholder="ВВЕДИТЕ УДОБНОЕ ДЛЯ ВАС ВРЕМЯ">
+                <label for="text" class="call__label">
+                    <textarea id="text" name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
+                    <ul class="input-requirements">
+                        <li>*Поле не обязательно</li>
+                    </ul>
+                </label>
                 <input type="submit" class="btn btn-white" id="submit" value="ОТПРАВИТЬ">
                 <div class="call__policy">
                     <input type="checkbox">

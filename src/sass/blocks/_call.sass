@@ -14,6 +14,10 @@
             font-size: 12px
         &-active
             top: 60px
+    .valid
+        color: green
+    .invalid
+        color: red
 
     &__form
         width: 915px
@@ -33,20 +37,23 @@
             &:not([type="checkbox"])
                 width: 100%
                 height: 60px
-        textarea
-            grid-column: 1/3
-            width: 100%
-            height: 60px
-            resize: none
-            padding: 18px
-            font-size: 13px
     &__label
         position: relative
         margin: 0
         transition: .5s all
         z-index: 1
         &-active
-            height: 100px
+            height: 90px
+            &:is([for="text"])
+                height: 70px
+        &:is([for="text"])
+            grid-column: 1/3
+            textarea
+                width: 100%
+                height: 60px
+                resize: none
+                padding: 18px
+                font-size: 13px
     &__icon
         svg
             display: block
