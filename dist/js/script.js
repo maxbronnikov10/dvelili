@@ -69,13 +69,12 @@ if (bodyId == "main") {
         presentationLeft = document.querySelector('.presentation__arrow-left'),
         presentationRight = document.querySelector('.presentation__arrow-right'),
         presentationWrapper = document.querySelector('.presentation__wrapper'),
-        defaultWrapper = {};
+        defaultWrapper = [...presentationWrapper.childNodes];
 
 
     window.addEventListener('DOMContentLoaded', () => {
         getClassesForSlides(instagramItems);
         getClasseForPresentationSlides(presentationWrapper);
-        Object.assign(defaultWrapper, presentationWrapper);
     });
 
 
@@ -149,9 +148,9 @@ if (bodyId == "main") {
     for (let i = 0; i < dots.childNodes.length; i++) {
         let e = dots.childNodes[i];
         e.addEventListener("click", () => {
-            const a = presentationWrapper.childNodes[i];
+            const a = defaultWrapper[i];
             const b = presentationWrapper.childNodes[1];
-            presentationWrapper.insertBefore(b, a);
+            presentationWrapper.insertBefore(a, b);
             getClasseForPresentationSlides(presentationWrapper);
             // setTimeout(() => {
             //     presentationRight.classList.toggle('presentation__arrow-right-active');
