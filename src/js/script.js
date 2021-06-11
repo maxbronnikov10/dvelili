@@ -57,7 +57,6 @@ const hamburger = document.querySelector('.promo__hamburger'),
     cart = document.querySelector('.promo__cart'),
     favorites = document.querySelector('.promo__favorites'),
     promo = document.querySelector('.promo'),
-    wrapper = document.querySelector('.presentation__wrapper'),
     dropdownmenu = document.querySelector('.presentation__dropdownmenu'),
     pageup = document.querySelector('.pageup');
 
@@ -65,14 +64,18 @@ const hamburger = document.querySelector('.promo__hamburger'),
 if (bodyId == "main") {
     const left = document.querySelector('.instagram__arrow-left'),
         right = document.querySelector('.instagram__arrow-right'),
+        dots = document.querySelector('.presentation__dots'),
         instagramItems = document.querySelector('.instagram__wrapper'),
         presentationLeft = document.querySelector('.presentation__arrow-left'),
         presentationRight = document.querySelector('.presentation__arrow-right'),
-        presentationWrapper = document.querySelector('.presentation__wrapper');
+        presentationWrapper = document.querySelector('.presentation__wrapper'),
+        defaultWrapper = {};
+
 
     window.addEventListener('DOMContentLoaded', () => {
         getClassesForSlides(instagramItems);
         getClasseForPresentationSlides(presentationWrapper);
+        Object.assign(defaultWrapper, presentationWrapper);
     });
 
 
@@ -116,6 +119,7 @@ if (bodyId == "main") {
         presentationLeft.style.pointerEvents = 'none';
         presentationLeft.classList.toggle('presentation__arrow-left-active');
         const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length - 1];
+
         const b = presentationWrapper.childNodes[0];
         presentationWrapper.insertBefore(a, b);
         getClasseForPresentationSlides(presentationWrapper);
@@ -141,6 +145,19 @@ if (bodyId == "main") {
 
         presentationRight.style.pointerEvents = 'auto';
     });
+
+    for (let i = 0; i < dots.childNodes.length; i++) {
+        let e = dots.childNodes[i];
+        e.addEventListener("click", () => {
+            const a = presentationWrapper.childNodes[i];
+            const b = presentationWrapper.childNodes[1];
+            presentationWrapper.insertBefore(b, a);
+            getClasseForPresentationSlides(presentationWrapper);
+            // setTimeout(() => {
+            //     presentationRight.classList.toggle('presentation__arrow-right-active');
+            // }, 250);
+        });
+    }
 }
 
 
@@ -219,7 +236,7 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
     });
 }
 
-if (bodyId == "shop") {
+if (bodyId == "main" || bodyId == "shop") {
     const shopImg = document.querySelectorAll(".shop__img");
     shopImg.forEach((e) => {
         e.addEventListener('mousemove', (event) => {
@@ -244,7 +261,6 @@ hamburger.addEventListener('click', () => {
     contacts.classList.toggle('promo__contacts-active');
     cart.classList.toggle('promo__cart-active');
     favorites.classList.toggle('promo__favorites-active');
-
 
     toggleWrapper();
     dropdownmenu.classList.toggle("presentation__dropdownmenu-active");
@@ -301,7 +317,7 @@ function getClasseForPresentationSlides(obj) {
     for (let i = 0; i < obj.childNodes.length; i++) {
         obj.childNodes[i].className = "";
         obj.childNodes[i].classList.add('presentation__content');
-        if (i >= 1) {
+        if (i != 1) {
             obj.childNodes[i].classList.add("presentation__content-disable");
         }
     }
@@ -331,13 +347,25 @@ function getClassesForSlides(obj) {
 
 function toggleWrapper() {
     if (document.querySelector('body').dataset.id == "main") {
+        const wrapper = document.querySelector('.presentation__wrapper'),
+            img = document.querySelector('.presentation__img'),
+            left = document.querySelector('.presentation__arrow-left'),
+            right = document.querySelector('.presentation__arrow-right'),
+            dots = document.querySelector('.presentation__dots'),
+            btn = document.querySelector('.presentation__content .btn'),
+            text = document.querySelector('.presentation__text');
+        const array = [img, left, right, dots, btn, text]
         if (wrapper.classList.contains('presentation__wrapper-active')) {
             wrapper.classList.remove('presentation__wrapper-active');
             setTimeout(function () {
-                wrapper.classList.remove('presentation__wrapper-hidden');
+                array.forEach((e) => {
+                    e.classList.remove("hidden");
+                })
             }, 20);
         } else {
-            wrapper.classList.add('presentation__wrapper-hidden');
+            array.forEach((e) => {
+                e.classList.add("hidden");
+            })
             wrapper.addEventListener('transitionend', function (e) {
                 wrapper.classList.add('presentation__wrapper-active');
             }, {
