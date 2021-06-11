@@ -71,6 +71,7 @@ if (bodyId == "main") {
         presentationWrapper = document.querySelector('.presentation__wrapper'),
         defaultWrapper = [...presentationWrapper.childNodes];
 
+    let dotsIndex = 1;
 
     window.addEventListener('DOMContentLoaded', () => {
         getClassesForSlides(instagramItems);
@@ -122,6 +123,7 @@ if (bodyId == "main") {
         const b = presentationWrapper.childNodes[0];
         presentationWrapper.insertBefore(a, b);
         getClasseForPresentationSlides(presentationWrapper);
+        dotsIndex = toggleDots(dots, --dotsIndex);
         setTimeout(() => {
             presentationLeft.classList.toggle('presentation__arrow-left-active');
         }, 250);
@@ -138,6 +140,7 @@ if (bodyId == "main") {
         const b = presentationWrapper.childNodes[0];
         presentationWrapper.insertBefore(b, a);
         getClasseForPresentationSlides(presentationWrapper);
+        dotsIndex = toggleDots(dots, ++dotsIndex);
         setTimeout(() => {
             presentationRight.classList.toggle('presentation__arrow-right-active');
         }, 250);
@@ -148,13 +151,23 @@ if (bodyId == "main") {
     for (let i = 0; i < dots.childNodes.length; i++) {
         let e = dots.childNodes[i];
         e.addEventListener("click", () => {
-            const a = defaultWrapper[i];
-            const b = presentationWrapper.childNodes[1];
-            presentationWrapper.insertBefore(a, b);
-            getClasseForPresentationSlides(presentationWrapper);
-            // setTimeout(() => {
-            //     presentationRight.classList.toggle('presentation__arrow-right-active');
-            // }, 250);
+            if (dotsIndex < i) {
+                for (let j = dotsIndex; i - dotsIndex; j++) {
+                    const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length];
+                    const b = presentationWrapper.childNodes[0];
+                    presentationWrapper.insertBefore(b, a);
+                    getClasseForPresentationSlides(presentationWrapper);
+                    dotsIndex = toggleDots(dots, ++dotsIndex);
+                }
+            } else if (dotsIndex > i) {
+                for (let j = dotsIndex; dotsIndex - i; j++) {
+                    const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length - 1];
+                    const b = presentationWrapper.childNodes[0];
+                    presentationWrapper.insertBefore(a, b);
+                    getClasseForPresentationSlides(presentationWrapper);
+                    dotsIndex = toggleDots(dots, --dotsIndex);
+                }
+            }
         });
     }
 }
@@ -310,6 +323,24 @@ pageup.addEventListener('click', function (e) {
         block: 'start'
     });
 });
+
+
+function toggleDots(obj, dotsIndex) {
+    if (dotsIndex > 2) {
+        dotsIndex = dotsIndex - 3;
+    } else if (dotsIndex < 0) {
+        dotsIndex = dotsIndex + 3;
+    }
+    for (let i = 0; i < obj.childNodes.length; i++) {
+        obj.childNodes[i].className = "";
+        obj.childNodes[i].classList.add('presentation__dots-item');
+        if (i == dotsIndex) {
+            obj.childNodes[i].classList.add("presentation__dots-item-active");
+        }
+    }
+    return dotsIndex;
+}
+
 
 function getClasseForPresentationSlides(obj) {
 
