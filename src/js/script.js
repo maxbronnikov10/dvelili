@@ -252,6 +252,26 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
     });
 }
 
+if (bodyId == "favorites") {
+    const callEmail = document.querySelector("#email"),
+        callText = document.querySelector("#text");
+
+
+    const inputs = [callEmail, callText];
+    inputs.forEach((e) => {
+        e.addEventListener('mouseover', function () {
+            toggleRequirements(e);
+        });
+
+        e.addEventListener('mouseout', function () {
+            toggleRequirements(e);
+        });
+        e.addEventListener('keyup', function () {
+            checkInput(e);
+        });
+    });
+}
+
 if (bodyId == "main" || bodyId == "shop") {
     const shopImg = document.querySelectorAll(".shop__img");
     shopImg.forEach((e) => {

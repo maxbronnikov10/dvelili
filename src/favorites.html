@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
-    
+
+<body data-id="favorites">
+
     <section class="promo" id="up">
         <div class="container">
             <header class="promo__header">
@@ -67,7 +69,7 @@
                             <a href="tel:+74999228974" class="promo__phone">+7 (499) 922-89-74</a>
                         </div>
                         <div class="promo__favorites">
-                            <a href="">
+                            <a href="favorites.html">
                                 <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -112,131 +114,160 @@
         </div>
 
     </section>
-
-    <div class="presentation__dropdownmenu ">
-        <div class="container">
-            <div class="presentation__dropdownmenu-wrapper">
-                <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
-                <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
-                <div class="presentation__dropdownmenu-header"><a href="">О нас</a></div>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="#">Юбки</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Смокинг</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Костюм</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Аксессуар</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Брюки</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Блузы</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Платья</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Топы и жилеты</a>
-                    </li>
-                </ul>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="delivery.html">Доставка
-                        </a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="stocks.html">Акции</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Избранное</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Корзина</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Отзывы</a>
-                    </li>
-                </ul>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="shop.html">Салон</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Отзывы</a>
-                    </li>
-                </ul>
+    <section class="presentation">
+        <div class="presentation__dropdownmenu ">
+            <div class="container">
+                <div class="presentation__dropdownmenu-wrapper">
+                    <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">О нас</a></div>
+                    <ul class="presentation__list">
+                        <li class="presentation__list-item">
+                            <a href="#">Юбки</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Смокинг</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Костюм</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Аксессуар</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Брюки</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Блузы</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Платья</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Топы и жилеты</a>
+                        </li>
+                    </ul>
+                    <ul class="presentation__list">
+                        <li class="presentation__list-item">
+                            <a href="delivery.html">Доставка
+                            </a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="stocks.html">Акции</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Избранное</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Корзина</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Отзывы</a>
+                        </li>
+                    </ul>
+                    <ul class="presentation__list">
+                        <li class="presentation__list-item">
+                            <a href="shop.html">Салон</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="reviews.html">Отзывы</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
+        </div>
     </section>
+
+
 
     <section class="favorites">
         <div class="container">
             <h2 class="title">ИЗБРАННОЕ</h2>
             <div class="favorites__wrapper">
                 <div class="favorites__item">
-                    <div class="favorites__img"><img src="img/favorites/favorites1.jpg "></div>
-                    <div class="favorites__text">
-                        <div class="favorites__title">
-                            Классический комплект с смокингом и жилетом
-                        </div>
-                        <div class="favorites__price">
-                            63 500 ₽
+                    <div class="favorites__content">
+                        <div class="favorites__img"><img src="img/favorites/favorites1.jpg "></div>
+                        <div class="favorites__descr">
+                            <div class="favorites__title">
+                                Классический комплект с смокингом и жилетом
+                            </div>
+                            <div class="favorites__price">
+                                63 500 ₽
+                            </div>
                         </div>
                     </div>
-                    <label for="text" class="reviews__label">
-                        <textarea id="text" name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
-                        <ul class="input-requirements">
-                            <li>*Поле не обязательно</li>
-                        </ul>
-                    </label>
-                    <input type="submit" class="btn btn-white" id="submit" value="КУПИТЬ">
-                    <input type="submit" class="btn btn-white" id="submit" value="Удалить">
+
+                    <div class="favorites__buttons">
+                        <button class="btn btn-white">КУПИТЬ</button>
+                        <button class="btn btn-white">Удалить</button>
+                    </div>
                 </div>
                 <div class="favorites__item">
-                    <div class="favorites__img"><img src="img/favorites/favorites2.jpg "></div>
-                    <div class="favorites__text">
-                        <div class="favorites__title">
-                            Белый смокинг и брюки с лампасами
-                        <div class="favorites__price">
-                            41 400 ₽
+                    <div class="favorites__content">
+                        <div class="favorites__img"><img src="img/favorites/favorites1.jpg "></div>
+                        <div class="favorites__descr">
+                            <div class="favorites__title">
+                                Классический комплект с смокингом и жилетом
+                            </div>
+                            <div class="favorites__price">
+                                63 500 ₽
+                            </div>
                         </div>
                     </div>
-                    <label for="text" class="reviews__label">
-                        <textarea id="text" name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
-                        <ul class="input-requirements">
-                            <li>*Поле не обязательно</li>
-                        </ul>
-                    </label>
-                    <input type="submit" class="btn btn-white" id="submit" value="КУПИТЬ">
-                    <input type="submit" class="btn btn-white" id="submit" value="Удалить">
+
+                    <div class="favorites__buttons">
+                        <button class="btn btn-white">КУПИТЬ</button>
+                        <button class="btn btn-white">Удалить</button>
+                    </div>
                 </div>
                 <div class="favorites__item">
-                    <div class="favorites__img"><img src="img/favorites/favorites3.jpg "></div>
-                    <div class="favorites__text">
-                        <div class="favorites__title">
-                            Белый смокинг и брюки с лампасами
-                        </div>
-                        <div class="favorites__price">
-                            26 900 ₽
+                    <div class="favorites__content">
+                        <div class="favorites__img"><img src="img/favorites/favorites1.jpg "></div>
+                        <div class="favorites__descr">
+                            <div class="favorites__title">
+                                Классический комплект с смокингом и жилетом
+                            </div>
+                            <div class="favorites__price">
+                                63 500 ₽
+                            </div>
                         </div>
                     </div>
-                    <label for="text" class="reviews__label">
+
+                    <div class="favorites__buttons">
+                        <button class="btn btn-white">КУПИТЬ</button>
+                        <button class="btn btn-white">Удалить</button>
+                    </div>
+                </div>
+            </div>
+            <div class="favorites__actions">
+                <div class="title">ДЕЙСТВИЯ НАД ЛИСТОМ ПОЖЕЛАНИЙ </div>
+                <form action="" class="favorites__form">
+
+                    <label for="email" class="favorites__label">
+                        <input required name="email" id="email" type="text" placeholder="ВВЕДИТЕ E-MAIL" min="2"
+                            max="100">
+                        <ul class="input-requirements">
+                            <li>*Поле обязательно</li>
+                        </ul>
+                    </label>
+                    <label for="text" class="favorites__label">
                         <textarea id="text" name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
                         <ul class="input-requirements">
                             <li>*Поле не обязательно</li>
                         </ul>
                     </label>
-                    <input type="submit" class="btn btn-white" id="submit" value="КУПИТЬ">
-                    <input type="submit" class="btn btn-white" id="submit" value="Удалить">
-                </div>
+                    <input type="submit" class="btn btn-black" id="submit" value="ОТПРАВИТЬ НА ПОЧТУ">
+                    <div class="favorites__form-text">
+                        Список товаров находящихся в “избронном”, будет отправлен на ваш электронный адрес, и вы в
+                        любой момент сможете получить к нему доступ.
+                    </div>
+                    <div class="favorites__policy">
+                        <input type="checkbox">
+                        <span>Я согласен(а) с <a target="_blank" href="policy.html">политикой
+                                конфиденциальности</a></span>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -323,6 +354,17 @@
             </div>
         </div>
     </footer>
+    <a href="#up" class="pageup pageup-hidden pageup-none">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-up"
+            class="svg-inline--fa fa-chevron-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path fill="#000"
+                d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z">
+            </path>
+        </svg>
+    </a>
 
+    <script src="js/script.js"></script>
 </body>
+
 </html>
