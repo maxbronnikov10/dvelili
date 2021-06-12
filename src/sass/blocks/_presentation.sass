@@ -2,11 +2,9 @@
     position: relative
     &__wrapper
         padding-top: 10px
-        height: calc(100vh - 105px)
+        height: calc(100vh - 140px)
         width: 100%
         transition: all .7s
-        &-active
-            display: none
     &__content
         padding-bottom: 80px
         display: flex
@@ -43,6 +41,7 @@
         align-content: center
         top: 50%
         transition: .25s all
+        transition: .5s transform
         &-active
             border: 1px solid #fff
             color: #fff
@@ -60,6 +59,7 @@
         bottom: 1vh
         left: 50%
         transform: translateX(-50%)
+        transition: .5s all
         &-item
             height: 20px
             width: 20px
@@ -72,6 +72,7 @@
         font-size: 36px
         text-align: center
         color: #fff
+        transition: .5s all
     &__dropdownmenu
         position: absolute
         z-index: 10
@@ -79,7 +80,7 @@
         width: 100%
         padding-top: 100px
         background-color: #000
-        height: calc(100vh - 15px)
+        height: calc(100vh - 50px)
         transition-delay: .7s
         transition: all .5s
         display: block
@@ -116,5 +117,3 @@
     .btn
         margin: 0 auto
         margin-top: 50px
-        display: flex
-        align-items: center

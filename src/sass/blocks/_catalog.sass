@@ -1,20 +1,52 @@
 .catalog
     margin-top: 70px
     &__wrapper
+        margin-top: 20px
         display: grid
-        grid-template: minmax(380px, auto) / repeat(4,260px)
+        grid-template: minmax(300px, auto) / repeat(4,260px)
         grid-auto-rows: minmax(380px, auto)
         gap: 30px
     &__item
         &-img
             img
+                transition: .5s all
                 width: 100%
                 height: 100%
                 object-fit: cover
+            &:hover
+                img
+                    transform: scale(1.05)
+                    filter: grayscale(30%)
+        &-descr
+            margin-top: 15px
+            display: flex
+            justify-content: space-between
+            a
+                svg
+                    path
+                        transition: .5s all
+                        fill: #fff
+                &:hover
+                    svg
+                        path
+                            fill: #F2404A
+        &-price
+            margin-top: 10px
     &__content
+        margin-top: 20px
         width: 100%
         display: flex
         justify-content: space-between
-    &__categories
-        ul
-            list-style-type: none
+    &__list
+        list-style-type: none
+        &-item
+            a
+                font-size: 16px
+                font-weight: bold
+            &-active
+                a
+                    text-decoration: underline
+                    color: $main-color
+            &:hover
+                transition: 1.5s all
+                transform: translateX(10px)

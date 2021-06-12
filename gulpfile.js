@@ -35,6 +35,7 @@ gulp.task('watch', function () {
     gulp.watch("src/*.html").on('change', gulp.parallel('html'));
     gulp.watch("src/js/**/*.js").on('change', gulp.parallel('scripts'));
     gulp.watch("src/img/**/*", gulp.parallel('images'));
+    gulp.watch("src/icons/**/*", gulp.parallel('icons'));
 });
 
 gulp.task('html', function () {

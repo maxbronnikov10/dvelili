@@ -59,38 +59,41 @@
         &-active
             a
                 color: white
-
     &__cart, &__favorites
         position: relative
         svg
             path
                 fill: #fff
                 transition: .5s all
-
         &-active
             svg
                 path
                     fill: black
                     stroke: #fff
-            .promo__count
+            div
                 color: #fff
+        div
+            left: 30px
     &__favorites
+        display: flex
         a
+            align-self: center
             &:hover
                 svg
                     path
                         fill: #F2404A
-        div
-            left: 30px
     &__cart
+        display: flex
         a
+            align-self: center
             &:hover
                 svg
                     path
                         fill: $main-color
+        div
+            left: 27px
     &__count
-        top: -3px
-        left: 27px
+        top: 17px
         position: absolute
         font-weight: bold
         font-size: 9px

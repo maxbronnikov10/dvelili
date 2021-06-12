@@ -375,34 +375,38 @@ function getClassesForSlides(obj) {
     }
 }
 
+function getElementFromActiveContent(className) {
+    let element;
+    document.querySelectorAll('.presentation__content').forEach((e) => {
+        if (!e.classList.contains("presentation__content-disable")) {
+            element = e.querySelector(className);
+        }
+    });
+    return element;
+}
+
 function toggleWrapper() {
     if (document.querySelector('body').dataset.id == "main") {
-        const wrapper = document.querySelector('.presentation__wrapper'),
-            img = document.querySelector('.presentation__img'),
+        const img = document.querySelector('.presentation__img'),
             left = document.querySelector('.presentation__arrow-left'),
             right = document.querySelector('.presentation__arrow-right'),
             dots = document.querySelector('.presentation__dots'),
-            btn = document.querySelector('.presentation__content .btn'),
-            text = document.querySelector('.presentation__text');
-        const array = [img, left, right, dots, btn, text]
-        if (wrapper.classList.contains('presentation__wrapper-active')) {
-            wrapper.classList.remove('presentation__wrapper-active');
+            btn = getElementFromActiveContent(".btn"),
+            text = getElementFromActiveContent('.presentation__text');
+
+        const array = [img, btn, text, left, right, dots];
+        if (img.classList.contains('hidden')) {
             setTimeout(function () {
                 array.forEach((e) => {
                     e.classList.remove("hidden");
-                })
+                });
             }, 20);
         } else {
             array.forEach((e) => {
+                console.log(e);
                 e.classList.add("hidden");
-            })
-            wrapper.addEventListener('transitionend', function (e) {
-                wrapper.classList.add('presentation__wrapper-active');
-            }, {
-                capture: false,
-                once: true,
-                passive: false
             });
+
         }
     }
 }
