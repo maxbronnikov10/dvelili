@@ -1,0 +1,16 @@
+.stocks
+    &__wrapper
+        display: grid
+        grid-template: minmax(200px,auto) / repeat(2,550px)
+        grid-auto-rows: minmax(200px,auto)
+        justify-content: space-around
+        row-gap: 20px
+    &__item
+        display: grid
+        grid-template-columns: 300px 200px
+        justify-content: space-between
+    &__img
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
