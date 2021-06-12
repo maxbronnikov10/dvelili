@@ -2,10 +2,11 @@
     position: relative
     &__wrapper
         padding-top: 10px
-        height: calc(100vh - 140px)
+        height: calc(50vh)
         width: 100%
         transition: all .7s
     &__content
+        position: relative
         padding-bottom: 80px
         display: flex
         flex-direction: column
@@ -20,8 +21,10 @@
         z-index: -1
         position: absolute
         top: 0
-        left: 0
-        width: 100%
+        left: 50%
+        transform: translateX(-50%)
+        margin: 0 auto
+        width: 90%
         height: 100%
         img
             width: 100%
@@ -46,9 +49,9 @@
             border: 1px solid #fff
             color: #fff
     &__arrow-left
-        left: calc(100vw / 20)
+        left: -20px
     &__arrow-right
-        right: calc(100vw / 20)
+        right: -20px
     &__dots
         position: absolute
         width: 100px

@@ -66,8 +66,8 @@ if (bodyId == "main") {
         right = document.querySelector('.instagram__arrow-right'),
         dots = document.querySelector('.presentation__dots'),
         instagramItems = document.querySelector('.instagram__wrapper'),
-        presentationLeft = document.querySelector('.presentation__arrow-left'),
-        presentationRight = document.querySelector('.presentation__arrow-right'),
+        presentationLeft = document.querySelectorAll('.presentation__arrow-left'),
+        presentationRight = document.querySelectorAll('.presentation__arrow-right'),
         presentationWrapper = document.querySelector('.presentation__wrapper'),
         defaultWrapper = [...presentationWrapper.childNodes];
 
@@ -113,39 +113,43 @@ if (bodyId == "main") {
     });
 
 
-    presentationLeft.addEventListener('click', (e) => {
-        e.preventDefault();
+    presentationLeft.forEach(e => {
+        e.addEventListener('click', (event) => {
+            event.preventDefault();
 
-        presentationLeft.style.pointerEvents = 'none';
-        presentationLeft.classList.toggle('presentation__arrow-left-active');
-        const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length - 1];
+            e.style.pointerEvents = 'none';
+            e.classList.toggle('presentation__arrow-left-active');
+            const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length - 1];
 
-        const b = presentationWrapper.childNodes[0];
-        presentationWrapper.insertBefore(a, b);
-        getClasseForPresentationSlides(presentationWrapper);
-        dotsIndex = toggleDots(dots, --dotsIndex);
-        setTimeout(() => {
-            presentationLeft.classList.toggle('presentation__arrow-left-active');
-        }, 250);
+            const b = presentationWrapper.childNodes[0];
+            presentationWrapper.insertBefore(a, b);
+            getClasseForPresentationSlides(presentationWrapper);
+            dotsIndex = toggleDots(dots, --dotsIndex);
+            setTimeout(() => {
+                e.classList.toggle('presentation__arrow-left-active');
+            }, 250);
 
-        presentationLeft.style.pointerEvents = 'auto';
+            e.style.pointerEvents = 'auto';
+        });
     });
 
-    presentationRight.addEventListener('click', (e) => {
-        e.preventDefault();
+    presentationRight.forEach(e => {
+        e.addEventListener('click', (event) => {
+            event.preventDefault();
 
-        presentationRight.style.pointerEvents = 'none';
-        presentationRight.classList.toggle('presentation__arrow-right-active');
-        const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length];
-        const b = presentationWrapper.childNodes[0];
-        presentationWrapper.insertBefore(b, a);
-        getClasseForPresentationSlides(presentationWrapper);
-        dotsIndex = toggleDots(dots, ++dotsIndex);
-        setTimeout(() => {
-            presentationRight.classList.toggle('presentation__arrow-right-active');
-        }, 250);
+            e.style.pointerEvents = 'none';
+            e.classList.toggle('presentation__arrow-right-active');
+            const a = presentationWrapper.childNodes[presentationWrapper.childNodes.length];
+            const b = presentationWrapper.childNodes[0];
+            presentationWrapper.insertBefore(b, a);
+            getClasseForPresentationSlides(presentationWrapper);
+            dotsIndex = toggleDots(dots, ++dotsIndex);
+            setTimeout(() => {
+                e.classList.toggle('presentation__arrow-right-active');
+            }, 250);
 
-        presentationRight.style.pointerEvents = 'auto';
+            e.style.pointerEvents = 'auto';
+        });
     });
 
     for (let i = 0; i < dots.childNodes.length; i++) {
