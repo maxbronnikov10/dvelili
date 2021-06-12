@@ -1,0 +1,90 @@
+.card
+    margin-top: 50px
+    &__wrapper
+        display: grid
+        grid-template: 1fr / minmax(50px,auto) 700px 300px
+        justify-content: space-between
+    &__options
+        display: flex
+        flex-direction: column
+        &-item
+            position: relative
+            margin-top: 15px
+            width: 40px
+            height: 70px
+            cursor: pointer
+            &-hidden
+                &:before
+                    transition: .5s all
+                    position: absolute
+                    top: -8px
+                    left: -8px
+                    content: ""
+                    width: 55px
+                    height: 85px
+                    border: 2px solid #E2DFDF
+                    transition: .5s all
+                    opacity: 0
+            &-active
+                &:before
+                    opacity: 1
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+    &__img
+        img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            opacity: 0
+            transition: .5s all
+        &-active
+            img
+                opacity: 1
+    &__price
+        font-size: 22px
+    &__content
+        display: flex
+        flex-direction: column
+    &__colors
+        margin-top: 40px
+        display: flex
+        &-item
+            position: relative
+            width: 25px
+            height: 25px
+            border: 5px solid red
+            border-radius: 100%
+            margin-left: 20px
+            &:before
+                position: absolute
+                top: -10px
+                left: -10px
+                content: ""
+                width: 35px
+                height: 35px
+                border: 2px solid #E2DFDF
+                border-radius: 100%
+        &-text
+            display: flex
+            align-items: center
+    &__text
+        margin-top: 35px
+        font-size: 17px
+    .title
+        margin: 0
+        display: flex
+        justify-content: space-between
+        a
+            svg
+                path
+                    fill: #fff
+            &:hover
+                svg
+                    path
+                        transition: .5s all
+                        fill: #F2404A
+    .btn
+        margin-top: 20px
+        width: 100%
