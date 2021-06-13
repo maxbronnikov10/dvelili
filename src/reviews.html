@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body data-id="reviews">
 
     <section class="promo" id="up">
         <div class="container">
@@ -69,7 +69,7 @@
                             <a href="tel:+74999228974" class="promo__phone">+7 (499) 922-89-74</a>
                         </div>
                         <div class="promo__favorites">
-                            <a href="">
+                            <a href="favorites.html">
                                 <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path
@@ -114,69 +114,65 @@
         </div>
 
     </section>
-
-    <div class="presentation__dropdownmenu ">
-        <div class="container">
-            <div class="presentation__dropdownmenu-wrapper">
-                <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
-                <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
-                <div class="presentation__dropdownmenu-header"><a href="">О нас</a></div>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="#">Юбки</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Смокинг</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Костюм</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Аксессуар</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Брюки</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Блузы</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Платья</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Топы и жилеты</a>
-                    </li>
-                </ul>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="delivery.html">Доставка
-                        </a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="stocks.html">Акции</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Избранное</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Корзина</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Отзывы</a>
-                    </li>
-                </ul>
-                <ul class="presentation__list">
-                    <li class="presentation__list-item">
-                        <a href="shop.html">Салон</a>
-                    </li>
-                    <li class="presentation__list-item">
-                        <a href="#">Отзывы</a>
-                    </li>
-                </ul>
+    <section class="presentation">
+        <div class="presentation__dropdownmenu ">
+            <div class="container">
+                <div class="presentation__dropdownmenu-wrapper">
+                    <div class="presentation__dropdownmenu-header"><a href="">Категории</a></div>
+                    <div class="presentation__dropdownmenu-header"><a href="">Покупателям</a></div>
+                    <ul class="presentation__list">
+                        <li class="presentation__list-item">
+                            <a href="#">Розы</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Тюльпаны</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Хризантемы</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Букеты</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Балерины</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Книги</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Сувениры</a>
+                        </li>
+                    </ul>
+                    <ul class="presentation__list">
+                        <li class="presentation__list-item">
+                            <a href="delivery.html">Доставка
+                            </a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="stocks.html">Акции</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="favorites.html">Избранное</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="#">Корзина</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="reviews.html">Отзывы</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="shop.html">Салон</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="reviews.html">Отзывы</a>
+                        </li>
+                        <li class="presentation__list-item">
+                            <a href="shop.html">Салон</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    </div>
     </section>
 
 
@@ -221,7 +217,7 @@
                     </div>
                 </div>
             </div>
-            <a href=""><button class="btn btn-black">Смотреть все</button></a>
+            <a href=""><button class="btn btn-black">Больше</button></a>
         </div>
     </section>
 
@@ -249,7 +245,7 @@
                             <li>*Должны быть только цифры</li>
                         </ul>
                     </label>
-                    <input required name="email" type="email" placeholder="ВВЕДИТЕ E-MAIL">
+                    <input required name="email" type="email" placeholder="ВВЕДИТЕ E-MAIL" min="6" max="100">
                     <label for="text" class="reviews__label">
                         <textarea id="text" name="text" placeholder="ВВЕДИТЕ КОММЕНТАРИЙ"></textarea>
                         <ul class="input-requirements">
@@ -267,6 +263,11 @@
                             <div class="field__file-button">ДОБАВИТЬ ФОТОГРАФИЮ</div>
                         </label>
 
+                    </div>
+                    <div class="call__policy">
+                        <input required type="checkbox">
+                        <span>Я согласен(а) с <a target="_blank" href="policy.html">политикой
+                                конфиденциальности</a></span>
                     </div>
                 </form>
             </div>
@@ -286,19 +287,19 @@
                     <ul class="menu">
 
                         <li class="menu-item">
-                            <a href="#">корзина</a>
+                            <a href="cart.html">корзина</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">избранное</a>
+                            <a href="favorites.html">избранное</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">акции</a>
+                            <a href="stocks.html">акции</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">доставка</a>
+                            <a href="delivery.html">доставка</a>
                         </li>
                         <li class="menu-item">
-                            <a href="#">контакты</a>
+                            <a href="contacts.html">контакты</a>
                         </li>
 
                     </ul>
@@ -355,7 +356,17 @@
             </div>
         </div>
     </footer>
+    <a href="#up" class="pageup pageup-hidden pageup-none">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chevron-circle-up"
+            class="svg-inline--fa fa-chevron-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path fill="#000"
+                d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm231-113.9L103.5 277.6c-9.4 9.4-9.4 24.6 0 33.9l17 17c9.4 9.4 24.6 9.4 33.9 0L256 226.9l101.6 101.6c9.4 9.4 24.6 9.4 33.9 0l17-17c9.4-9.4 9.4-24.6 0-33.9L273 142.1c-9.4-9.4-24.6-9.4-34 0z">
+            </path>
+        </svg>
+    </a>
 
+    <script src="js/script.js"></script>
 </body>
 
 </html>

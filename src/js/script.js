@@ -177,7 +177,7 @@ if (bodyId == "main") {
 }
 
 
-if (bodyId == "main" || bodyId == "about" || bodyId == "shop") {
+if (bodyId == "main" || bodyId == "about" || bodyId == "shop" || bodyId == "reviews" || bodyId == "cart") {
 
     const callName = document.querySelector("#name"),
         callPhone = document.querySelector("#phone"),
@@ -289,7 +289,6 @@ if (bodyId == "main" || bodyId == "shop") {
 }
 
 if (bodyId == "card") {
-
     const catalogOptions = document.querySelectorAll(".card__options-item");
     const img = document.querySelector(".card__img").childNodes[0];
     window.addEventListener('DOMContentLoaded', () => {
