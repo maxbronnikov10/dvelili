@@ -34,7 +34,6 @@ CustomValidation.prototype = {
                 } else {
                     list.childNodes.forEach((e) => {
                         if (this.validityChecks[i].invalidityMessage === e.textContent.slice(1)) {
-
                             e.classList.remove('invalid');
                             e.classList.add('valid');
                         }
@@ -177,18 +176,19 @@ if (bodyId == "main") {
 }
 
 
-if (bodyId == "main" || bodyId == "about" || bodyId == "shop" || bodyId == "reviews" || bodyId == "cart") {
+if (bodyId == "main" || bodyId == "about" || bodyId == "shop" || bodyId == "reviews" || bodyId == "cart" || bodyId == "delivery") {
 
     const callName = document.querySelector("#name"),
         callPhone = document.querySelector("#phone"),
         callText = document.querySelector("#text"),
+        callEmail = document.querySelector("#email"),
         submit = document.querySelector("#submit");
     callPhone.addEventListener("input", mask, false);
     callPhone.addEventListener("focus", mask, false);
     callPhone.addEventListener("blur", mask, false);
 
 
-    const inputs = [callName, callPhone, callText];
+    const inputs = [callName, callPhone, callText, callEmail];
     var nameValidityChecks = [
         {
             isInvalid: function (input) {
@@ -211,8 +211,12 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop" || bodyId == "revi
         {
             isInvalid: function (input) {
                 let value = input.value;
-                value = value.replace(["+", "-", " "], "");
-                return value < 12 | value > 12;
+                value = value.replaceAll("+", "");
+                value = value.replaceAll("-", "");
+                value = value.replaceAll("(", "");
+                value = value.replaceAll(")", "");
+                value = value.replaceAll(" ", "");
+                return value.length < 11;
             },
             invalidityMessage: 'Не менее одиннадцати символов',
             element: callPhone
@@ -227,27 +231,55 @@ if (bodyId == "main" || bodyId == "about" || bodyId == "shop" || bodyId == "revi
         }
     ];
 
+    var emailValidityChecks = [
+        {
+            isInvalid: function (input) {
+                return input.value.length < 5;
+            },
+            invalidityMessage: 'Не менее пяти символов',
+            element: callEmail
+        },
+        {
+            isInvalid: function (input) {
+                var illegalCharacters = input.value.match(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+                return illegalCharacters ? false : true;
+            },
+            invalidityMessage: `Email должен соответствовать шаблону-*@*.*`,
+            element: callEmail
+        }
+    ];
+
     callName.CustomValidation = new CustomValidation();
     callName.CustomValidation.validityChecks = nameValidityChecks;
 
     callPhone.CustomValidation = new CustomValidation();
     callPhone.CustomValidation.validityChecks = phoneValidityChecks;
 
-    inputs.forEach((e) => {
-        e.addEventListener('mouseover', function () {
-            toggleRequirements(e);
-        });
+    if (callEmail) {
+        callEmail.CustomValidation = new CustomValidation();
+        callEmail.CustomValidation.validityChecks = emailValidityChecks;
+    }
 
-        e.addEventListener('mouseout', function () {
-            toggleRequirements(e);
-        });
-        e.addEventListener('keyup', function () {
-            checkInput(e);
-        });
+    inputs.forEach((e) => {
+        if (e) {
+            e.addEventListener('keyup', function () {
+                checkInput(e);
+            });
+            e.addEventListener('focus', function () {
+                toggleRequirements(e);
+                checkInput(e);
+            });
+            e.addEventListener('blur', function () {
+                toggleRequirements(e);
+            });
+        }
     });
     submit.addEventListener('click', function () {
-        for (var i = 0; i < inputs.length - 1; i++) {
-            checkInput(inputs[i]);
+        for (var i = 0; i < inputs.length; i++) {
+
+            if (inputs[i]) {
+                checkInput(inputs[i]);
+            }
         }
     });
 }
@@ -411,7 +443,17 @@ function getClassForCardOptions(obj, index) {
 }
 
 function toggleRequirements(e) {
-    e.parentNode.classList.toggle("call__label-active");
+    let s;
+    if (bodyId == "reviews") {
+        s = "reviews__label";
+    } else if (bodyId == "cart") {
+
+        s = "cart__main-label";
+    }
+    else {
+        s = "call__label";
+    }
+    e.parentNode.classList.toggle(`${s}-active`);
     e.parentNode.childNodes[1].classList.toggle("input-requirements-active");
 }
 

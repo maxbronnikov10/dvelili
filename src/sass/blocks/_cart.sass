@@ -99,6 +99,7 @@
         margin-top: 20px
         display: flex
         justify-content: space-around
+        flex-wrap: wrap
         input
             margin-right: 10px
             display: none
@@ -137,10 +138,11 @@
     .invalid
         color: red
     &__main
-        display: flex
-        flex-direction: column
+        display: grid
+        grid-template: minmax(60px, auto)
+        grid-auto-rows: minmax(60px,auto)
+        row-gap: 10px
         input
-
             &:not([type="submit"])
                 color: #9D9DAD
                 padding: 18px
@@ -151,16 +153,14 @@
                 height: 60px
         &-label
             position: relative
-            margin: 0
-            margin-top: 10px
             transition: .5s all
+            height: 60px
             z-index: 1
             &-active
                 height: 90px
                 &:is([for="text"])
                     height: 70px
             &:is([for="text"])
-                grid-column: 1/3
                 textarea
                     width: 100%
                     height: 60px

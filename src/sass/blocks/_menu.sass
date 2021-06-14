@@ -6,8 +6,15 @@
     margin: 0
     font-weight: 600
     &-item
-        transition: .5s all
-        &:hover
-            transform: translateY(-5px)
+        display: flex
+        flex-direction: column
         a
+            transition: .5s all
             text-transform: uppercase
+            &:nth-child(1)
+                &:hover
+                    transform: translateY(-5px)
+            &:not(:nth-child(1))
+                font-weight: 300
+                &:hover
+                    transform: translateX(5px)
