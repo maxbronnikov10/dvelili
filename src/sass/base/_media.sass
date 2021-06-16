@@ -57,21 +57,7 @@
     .footer
         margin-left: 20px
         margin-right: 20px
-    .pageup
-        position: fixed
-        bottom: 40px
-        right: 110px
-        width: 40px
-        height: 50px
-        transition: all 1.5s
-        img
-            width: 100px
-        &-none
-            display: none
-        &-active
-            display: block
-        &-hidden
-            opacity: 0
+    
 
 @media (max-width: 991px)
     .goods
@@ -134,21 +120,6 @@
                 display: none
             &-another
                 display: none
-    .pageup
-        position: fixed
-        bottom: 40px
-        right: 350px
-        width: 40px
-        height: 50px
-        transition: all 1.5s
-        img
-            width: 100px
-        &-none
-            display: none
-        &-active
-            display: block
-        &-hidden
-            opacity: 0
 @media (max-width: 767px) 
     .menu
         display: none
@@ -209,4 +180,6 @@
             grid-auto-rows: 180px
             gap: 20px
             justify-content: center
+        &__item
+            grid-template: auto/60px auto
 // @media (max-width: 595px)
