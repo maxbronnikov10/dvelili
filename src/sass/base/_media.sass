@@ -49,7 +49,7 @@
             grid-auto-rows: minmax(340px, auto)
             gap: 30px
         &__content
-            justify-content: center
+            justify-content: space-around
 
     .instagram
         margin-top: 70px
@@ -71,6 +71,10 @@
     .footer
         margin-left: 20px
         margin-right: 20px
+    .aboutus
+        margin-top: 35px
+    .contacts
+        margin-top: 45px
 
 @media (max-width: 991px)
     .goods
@@ -80,6 +84,8 @@
             grid-template: 320px / repeat(3,200px)
             grid-auto-rows: 400px
             gap: 40px
+    .aboutus
+        margin-top: 28px
     .about
         &__wrapper
             margin-left: 10px
@@ -102,6 +108,7 @@
             row-gap: 30px
             justify-content: center
     .catalog
+        margin-top: 30px
         &__wrapper
             margin-top: 20px
             display: grid
@@ -109,7 +116,7 @@
             grid-auto-rows: minmax(340px, auto)
             gap: 30px
         &__content
-            justify-content: center
+            justify-content: space-around
     .call
         margin-top: 50px
         &__form
@@ -145,9 +152,13 @@
                 display: none
     .footer .menu
         display: grid
+    .contacts
+        margin-top: 35px
 @media (max-width: 767px)
     .menu
         display: none
+    .promo
+        margin-right: 20px
     .goods
         &__wrapper
             display: grid
@@ -166,6 +177,21 @@
         &__text
             margin-top: 10px
             font-size: 14px
+    .catalog
+        &__wrapper
+            margin-top: 20px
+            display: grid
+            grid-template: minmax(300px, auto) / repeat(2,260px)
+            grid-auto-rows: minmax(340px, auto)
+            gap: 30px
+            justify-content: center
+        &__content
+            flex-direction: column
+        &__list
+            margin-top: 20px
+            margin-right: 20px
+            display: flex
+            justify-content: space-around
     .shop
         margin-top: 40px
         &__wrapper
@@ -213,6 +239,8 @@
     .footer
         &__contacts,&__address,&__schedule,&__mail
             grid-column: 1/3
+    .contacts
+        margin-top: 35px
 @media (max-width: 595px)
     .social
         width: 70px
@@ -236,6 +264,7 @@
                 height: 20px
         &__cart div, &__favorites div
             left: 25px
+    
     .presentation
         &__arrow-left, &__arrow-right
             display: none
@@ -268,6 +297,21 @@
             grid-auto-rows: minmax(60px,auto)
         &__policy
             grid-column: auto
+    .catalog
+        &__wrapper
+            margin-top: 20px
+            display: grid
+            grid-template: minmax(300px, auto) / repeat(1,250px)
+            grid-auto-rows: minmax(340px, auto)
+            gap: 30px
+        &__content
+            justify-content: center
+        &__list
+            margin-top: 20px
+            margin-left: 40px
+            display: grid
+            grid-template: minmax(40px, auto) / repeat(3, 120px)
+            justify-content: center
     .feedback
         margin-top: 30px
         &__wrapper
@@ -285,3 +329,5 @@
     .pageup
         height: 30px
         width: 30px
+    .contacts
+        margin-top: 35px
