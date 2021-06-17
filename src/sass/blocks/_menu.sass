@@ -1,16 +1,18 @@
 .menu
     list-style-type: none
-    display: flex
-    justify-content: space-between
     padding: 0
     margin: 0
     font-weight: 600
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
+    row-gap: 20px
     &-item
         display: flex
         flex-direction: column
         a
             transition: .5s all
-            text-transform: uppercase
+            &:first-letter
+                text-transform: uppercase
             &:nth-child(1)
                 &:hover
                     transform: translateY(-5px)

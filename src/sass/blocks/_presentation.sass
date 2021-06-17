@@ -2,7 +2,7 @@
     position: relative
     &__wrapper
         padding-top: 10px
-        height: calc(50vh)
+        height: calc(60vh)
         width: 100%
         transition: all .7s
     &__content
@@ -79,6 +79,7 @@
     &__dropdownmenu
         position: absolute
         z-index: 10
+        left: 0
         top: -1150px
         width: 100%
         padding-top: 100px
@@ -88,8 +89,9 @@
         transition: all .5s
         display: block
         &-active
-            top: 0
+            top: -30px
         &-header
+            margin-bottom: 20px
             a
                 font-size: 22px
                 color: #fff
@@ -97,11 +99,11 @@
                 &:hover
                     color: $main-color
         &-wrapper
-            width: 1080px
+            width: 50vw
             margin: 0 auto
             display: grid
-            grid-template: repeat(2, auto)/repeat(2,200px)
-            grid-auto-rows: 120px
+            grid-template: auto/repeat(2,200px)
+            grid-auto-rows: auto
             justify-content: space-around
             row-gap: 40px
     &__list
