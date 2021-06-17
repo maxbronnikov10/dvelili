@@ -36,6 +36,16 @@
             display: grid
             grid-template: auto / repeat(3,295px)
             column-gap: 30px
+    .catalog
+        &__wrapper
+            margin-top: 20px
+            display: grid
+            grid-template: minmax(300px, auto) / repeat(3,260px)
+            grid-auto-rows: minmax(340px, auto)
+            gap: 30px
+        &__content
+            justify-content: center
+
     .instagram
         margin-top: 70px
         &__wrapper
@@ -57,7 +67,6 @@
     .footer
         margin-left: 20px
         margin-right: 20px
-    
 
 @media (max-width: 991px)
     .goods
@@ -88,6 +97,15 @@
             grid-template: auto / repeat(1,455px)
             row-gap: 30px
             justify-content: center
+    .catalog
+        &__wrapper
+            margin-top: 20px
+            display: grid
+            grid-template: minmax(300px, auto) / repeat(2,260px)
+            grid-auto-rows: minmax(340px, auto)
+            gap: 30px
+        &__content
+            justify-content: center
     .call
         margin-top: 50px
         &__form
@@ -108,6 +126,7 @@
                 &:not([type="checkbox"])
                     width: 100%
                     height: 60px
+    
     .instagram
         margin-top: 70px
         &__wrapper
@@ -182,4 +201,13 @@
             justify-content: center
         &__item
             grid-template: auto/60px auto
-// @media (max-width: 595px)
+@media (max-width: 595px)
+    .catalog
+        &__wrapper
+            margin-top: 20px
+            display: grid
+            grid-template: minmax(300px, auto) / repeat(1,260px)
+            grid-auto-rows: minmax(340px, auto)
+            gap: 30px
+        &__content
+            justify-content: center
