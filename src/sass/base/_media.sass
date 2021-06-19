@@ -43,11 +43,8 @@
             column-gap: 30px
     .catalog
         &__wrapper
-            margin-top: 20px
-            display: grid
-            grid-template: minmax(300px, auto) / repeat(3,260px)
+            grid-template: minmax(300px, auto) / repeat(3,240px)
             grid-auto-rows: minmax(340px, auto)
-            gap: 30px
         &__content
             justify-content: space-around
 
@@ -179,19 +176,17 @@
             font-size: 14px
     .catalog
         &__wrapper
-            margin-top: 20px
-            display: grid
-            grid-template: minmax(300px, auto) / repeat(2,260px)
-            grid-auto-rows: minmax(340px, auto)
-            gap: 30px
             justify-content: center
         &__content
             flex-direction: column
         &__list
             margin-top: 20px
-            margin-right: 20px
-            display: flex
-            justify-content: space-around
+            padding: 0 15px
+            display: grid
+            grid-template: auto / repeat(auto-fill, minmax(100px,auto))
+            grid-auto-rows: auto
+            gap: 10px
+
     .shop
         margin-top: 40px
         &__wrapper
@@ -264,7 +259,7 @@
                 height: 20px
         &__cart div, &__favorites div
             left: 25px
-    
+
     .presentation
         &__arrow-left, &__arrow-right
             display: none
@@ -299,18 +294,10 @@
             grid-column: auto
     .catalog
         &__wrapper
-            margin-top: 20px
-            display: grid
-            grid-template: minmax(300px, auto) / repeat(1,250px)
-            grid-auto-rows: minmax(340px, auto)
-            gap: 30px
+            grid-template-columns: 250px
         &__content
             justify-content: center
         &__list
-            margin-top: 20px
-            margin-left: 40px
-            display: grid
-            grid-template: minmax(40px, auto) / repeat(3, 120px)
             justify-content: center
     .feedback
         margin-top: 30px
