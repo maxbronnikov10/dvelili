@@ -20,12 +20,12 @@
         color: red
 
     &__form
-        width: 915px
         margin: 0 auto
+        padding: 0 20px
         margin-top: 30px
         display: grid
-        grid-template: repeat(2,minmax(60px, auto))/repeat(3,300px)
-        grid-auto-rows: 60px
+        grid-template: repeat(2,minmax(60px, auto))/repeat(auto-fit,minmax(300px,auto))
+        grid-auto-rows: minmax(60px,auto)
         row-gap: 20px
         column-gap: 5px
         input

@@ -2,12 +2,15 @@
     margin-top: 70px
     &__wrapper
         display: grid
-        grid-auto-rows: 100px
+        grid-auto-rows: minmax(100px, auto)
         gap: 30px
+        justify-content: center
     &__item
         display: grid
-        grid-template-columns: auto 230px
+        grid-template-columns: repeat(auto-fit, minmax(230px, auto))
         justify-content: space-between
+        column-gap: 20px
+        row-gap: 20px
         &-descr
             display: flex
             justify-content: space-between
@@ -25,6 +28,7 @@
         &-content
             display: flex
             justify-content: space-between
+            align-items: center
         &-amount
             display: flex
         &-minus, &-plus, &-number
@@ -66,7 +70,8 @@
     &__content
         margin-top: 90px
         display: grid
-        grid-template-columns: 690px 450px
+        grid-template-columns: repeat(auto-fit,minmax(500px, auto))
+        column-gap: 50px
         justify-content: space-between
     &__descr
         margin-top: 30px
@@ -139,7 +144,7 @@
         color: red
     &__main
         display: grid
-        grid-template: minmax(60px, auto)
+        grid-template: minmax(60px, auto) / auto
         grid-auto-rows: minmax(60px,auto)
         row-gap: 10px
         input

@@ -83,7 +83,14 @@
             grid-auto-rows: minmax(340px, auto)
         &__content
             justify-content: space-around
-
+    .favorites
+        padding: 0 20px
+    .cart
+        padding: 0 20px
+    .card
+        padding: 0 20px
+        &__wrapper
+            grid-template-columns: minmax(50px,auto) 550px 250px
     .instagram
         margin-top: 70px
         &__wrapper
@@ -107,8 +114,7 @@
     .aboutus
         margin-top: 35px
     .contacts
-        margin-top: 45px
-
+        padding: 0 20px
 @media (max-width: 991px)
     .goods
         &__wrapper
@@ -117,7 +123,6 @@
             grid-template: 320px / repeat(3,200px)
             grid-auto-rows: 400px
             gap: 40px
-
     .about
         &__wrapper
             margin-left: 10px
@@ -172,28 +177,32 @@
             grid-template: repeat(2,200px)/repeat(2,360px)
     .call
         margin-top: 50px
-        &__form
-            width: 555px
-            margin: 0 auto
-            margin-top: 30px
-            display: grid
-            grid-template: repeat(2,minmax(60px, auto))/repeat(2,300px)
-            grid-auto-rows: minmax(60px, auto)
-            row-gap: 20px
-            column-gap: 5px
-            input
-                &:not([type="submit"])
-                    color: #9D9DAD
-                    padding: 18px
-                    z-index: 10
-                    font-size: 13px
-                &:not([type="checkbox"])
-                    width: 100%
-                    height: 60px
         &__label
             &:is([for="text"])
                 grid-column: auto
-
+    .reviews
+        margin-top: 50px
+        &__label
+            &:is([for="text"])
+                grid-column: auto
+    .contacts
+        &__wrapper
+            grid-template-columns: auto
+        &__img
+            align-items: flex-start
+        &__info
+            margin-top: 20px
+    .card
+        &__wrapper
+            grid-template-columns: 500px minmax(200px,auto)
+            justify-content: center
+            column-gap: 30px
+        &__options
+            grid-column: 1/3
+            flex-direction: row
+            &-item
+                margin-top: 0
+                margin-right: 15px
     .instagram
         margin-top: 70px
         &__wrapper
@@ -269,26 +278,9 @@
         &__name
             margin-bottom: 15px
             text-align: center
-    .call
-        margin-top: 70px
-        &__form
-            width: 540px
-            margin: 0 auto
-            margin-top: 30px
-            display: grid
-            grid-template: repeat(2,minmax(60px, auto))/repeat(2,250px)
-            grid-auto-rows: minmax(60px, auto)
-            row-gap: 20px
-            column-gap: 5px
-            input
-                &:not([type="submit"])
-                    color: #9D9DAD
-                    padding: 18px
-                    z-index: 10
-                    font-size: 13px
-                &:not([type="checkbox"])
-                    width: 100%
-                    height: 60px
+    .card
+        &__wrapper
+            grid-template-columns: 300px minmax(200px,auto)
     .feedback
         margin-top: 30px
         &__wrapper
@@ -359,12 +351,33 @@
         &__wrapper
             grid-template-columns: 300px
     .call
-        &__form
-            width: 300px
-            grid-template-columns: 1fr
-            grid-auto-rows: minmax(60px,auto)
         &__policy
             grid-column: auto
+    .reviews
+        &__policy
+            grid-column: auto
+    .favorites
+        &__item
+            grid-template-columns: auto
+        .btn
+            width: 120px
+            margin-right: 5px
+        &__buttons
+            padding: 0 20px
+            flex-direction: row
+        &__policy
+            grid-column: auto
+        &__form
+            &-text
+                grid-column: auto
+        &__label
+            &:is([for="text"])
+                grid-column: auto
+    .cart
+        &__radio
+            flex-direction: column
+        &__content
+            grid-template-columns: auto
     .catalog
         &__wrapper
             grid-template-columns: 250px
@@ -388,6 +401,12 @@
                 height: 60%
         &__item
             grid-template-columns: 200px 100px
+    .card
+        &__wrapper
+            grid-template-columns: auto
+        &__options
+            grid-column: auto
+
     .feedback
         margin-top: 30px
         &__wrapper

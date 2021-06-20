@@ -5,9 +5,13 @@
         display: grid
         grid-template: auto / 700px auto
         column-gap: 20px
+    &__map
+        iframe
+            width: 100%
+            height: 450px
     &__info
         display: grid
-        grid-template: repeat(3, auto) / repeat(2, auto)
+        grid-template: repeat(3, auto) / repeat(auto-fit, minmax(200px,auto))
         justify-content: space-between
         row-gap: 20px
         &-item
