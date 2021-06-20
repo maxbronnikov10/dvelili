@@ -360,7 +360,7 @@ hamburger.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', function () {
-    if (window.scrollY > window.innerHeight / 4 &&
+    if (window.scrollY > window.innerHeight / 3 &&
         dropdownmenu.classList.contains('presentation__dropdownmenu-active')) {
         promo.classList.remove('promo-active');
         hamburger.classList.remove('promo__hamburger-active');

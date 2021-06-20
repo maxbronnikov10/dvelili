@@ -3,9 +3,9 @@
     &__wrapper
         margin-top: 30px
         display: grid
-        grid-template: minmax(200px,auto) / repeat(2,550px)
-        grid-auto-rows: minmax(200px,auto)
-        justify-content: space-around
+        grid-template: minmax(200px,auto) / repeat(auto-fit,minmax(550px,auto))
+        justify-content: center
+        column-gap: 100px
         row-gap: 20px
     &__item
         display: grid

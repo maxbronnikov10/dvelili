@@ -7,17 +7,18 @@
         object-fit: cover
     &__wrapper
         margin: 0 auto
+        width: 100%
         display: grid
-        grid-template: 1025px / 700px auto
+        grid-template: auto / repeat(auto-fit, minmax(550px, auto))
+        justify-content: space-between
         column-gap: 20px
     &__img
         img
-            width: 1337px
-            height: 700px
+            width: 100%
+            height: 70vh
     &__text
         margin-top: 30px
         font-size: 17px
-        width: 570px
         height: 350px
     &__subtitle
         margin-top: 68px
@@ -28,9 +29,8 @@
         font-size: 16px
         font-weight: 600
     &__descr
-        width: 553px
         height: 92px
         margin-top: 23px
     &__photo
-        width: 600px
+        width: 100%
         object-fit: cover
